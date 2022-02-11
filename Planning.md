@@ -88,6 +88,9 @@
             - No futher requests need to be made and debounce might not be needed. 
         - 3. Still put the search and filter func in the hook 
             - Trigger a rerender when response changes  
+        - `Note`
+            - Check network time when making request to get all the data you need for 
+                - all countries. 
 ## Stateful Components
 - Have App.js hold the Hook 
     - pass helper functions and state down as props
