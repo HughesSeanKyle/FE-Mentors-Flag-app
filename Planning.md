@@ -98,6 +98,14 @@
 - Nav (Optional)
     - Control State between light and dark mode (Boolean State - on/off switch)
 
+## Data Needed from response 
+- 1. Name 
+- 2. Population
+- 3. Region 
+- 4. Capital 
+- 5. Country flag img 
+- 6. Country Neighbor 
+
 ## Controlled Componets 
 ## Uncontrolled / Display Components 
 ## Additions (Later - New Branch) 
