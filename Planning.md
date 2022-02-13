@@ -91,7 +91,9 @@
         - 4. You will need to useMemo in the even a country or region as already 
             - been selected 
                 - this will remember the last search or region filter and improve 
-                    - performance a bit.   
+                    - performance a bit.
+            - `NOTE`
+                - See Referencial Equality example of useMemo   
         - `Note`
             - Check network time when making request to get all the data you need for 
                 - all countries. 
