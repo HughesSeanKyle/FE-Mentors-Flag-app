@@ -87,7 +87,11 @@
         - 2. The search and filter function can manipulate the response 
             - No futher requests need to be made and debounce might not be needed. 
         - 3. Still put the search and filter func in the hook 
-            - Trigger a rerender when response changes  
+            - Trigger a rerender when response changes
+        - 4. You will need to useMemo in the even a country or region as already 
+            - been selected 
+                - this will remember the last search or region filter and improve 
+                    - performance a bit.   
         - `Note`
             - Check network time when making request to get all the data you need for 
                 - all countries. 
@@ -105,6 +109,11 @@
 - 4. Capital 
 - 5. Country flag img 
 - 6. Country Neighbor 
+
+## NPM Packages 
+- 1. axios
+- 2. react-router-dom
+
 
 ## Controlled Componets 
 ## Uncontrolled / Display Components 
