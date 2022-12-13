@@ -1,5 +1,6 @@
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
 import Switch from './forms/Switch';
+import '../App.css';
 
 const NavBar = ({ readGlobalState, writeGlobalState }) => {
 	const { selectedColorMode } = readGlobalState;
@@ -22,7 +23,7 @@ const NavBar = ({ readGlobalState, writeGlobalState }) => {
 					Where in the world?
 				</NavLink>
 			</NavItem>
-			<NavItem>
+			<NavItem className="align-self-center navbar__switch">
 				<Switch
 					readGlobalState={readGlobalState}
 					writeGlobalState={writeGlobalState}

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Switch = ({ readGlobalState, writeGlobalState }) => {
-	console.log('switchState', switchState);
-
 	const { selectedColorMode } = readGlobalState;
 	const { setSelectedColorMode } = writeGlobalState;
 

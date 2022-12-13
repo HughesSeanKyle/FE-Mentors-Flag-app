@@ -1,8 +1,8 @@
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import './App.css';
 import { Button } from 'reactstrap';
 import NavBar from './components/NavBar';
+import './App.css';
 
 function App() {
 	const [selectedColorMode, setSelectedColorMode] = useState(null);
