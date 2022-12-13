@@ -1,3 +1,13 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+html,
+body,
+#root,
+.app {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 /* Light/Dark Theme colors */
 html {
   --dark-mode-element: hsl(209, 23%, 22%);
@@ -8,6 +18,7 @@ html {
   --light-mode-text: hsl(200, 15%, 8%);
 }
 
+/* Global Parent */
 .app-light {
   background-color: var(--light-mode-bg);
   height: 100vh;
@@ -16,6 +27,29 @@ html {
 .app-dark {
   background-color: var(--dark-mode-bg);
   height: 100vh;
+}
+
+/* NavBar */
+.navbar-light {
+  background-color: var(--light-mode-element);
+  display: flex;
+  justify-content: space-between;
+  color: var(--light-mode-text);
+}
+
+.navbar-dark {
+  background-color: var(--dark-mode-element);
+  display: flex;
+  justify-content: space-between;
+  color: var(--dark-mode-text);
+}
+
+.navbar-light-text {
+  color: var(--light-mode-text);
+}
+
+.navbar-dark-text {
+  color: var(--dark-mode-text);
 }
 
 .App-logo {
