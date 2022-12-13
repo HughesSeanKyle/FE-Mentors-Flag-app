@@ -1,9 +1,10 @@
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
 	return (
-		<div className="app">
+		<div className={colorMode === 'light' ? 'app-light' : 'app-dark'}>
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<div>All flags</div>} />

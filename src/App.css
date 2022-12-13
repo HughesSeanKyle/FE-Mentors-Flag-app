@@ -1,5 +1,21 @@
-.App {
-  text-align: center;
+/* Light/Dark Theme colors */
+html {
+  --dark-mode-element: hsl(209, 23%, 22%);
+  --dark-mode-bg: hsl(207, 26%, 17%);
+  --dark-mode-text: hsl(0, 0%, 100%);
+  --light-mode-element: hsl(0, 0%, 100%);
+  --light-mode-bg: hsl(0, 0%, 98%);
+  --light-mode-text: hsl(200, 15%, 8%);
+}
+
+.app-light {
+  background-color: var(--light-mode-bg);
+  height: 100vh;
+}
+
+.app-dark {
+  background-color: var(--dark-mode-bg);
+  height: 100vh;
 }
 
 .App-logo {
@@ -14,7 +30,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--dark-mode-bg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
