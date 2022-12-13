@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Switch = ({ readGlobalState, writeGlobalState }) => {
-	const [switchState, setSwitchState] = useState(false);
 	console.log('switchState', switchState);
 
 	const { selectedColorMode } = readGlobalState;
@@ -31,7 +30,11 @@ const Switch = ({ readGlobalState, writeGlobalState }) => {
 						onColorModeChange();
 					}}
 				/>
-				<Label check>Checked switch checkbox input</Label>
+				<Label check>
+					{selectedColorMode === 'light'
+						? 'Switch to dark mode'
+						: 'Switch to light mode'}
+				</Label>
 			</FormGroup>
 		</Form>
 	);
