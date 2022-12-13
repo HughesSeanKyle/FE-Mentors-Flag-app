@@ -1,6 +1,5 @@
 import { Button, Nav, NavItem, NavLink } from 'reactstrap';
-
-import React from 'react';
+import Switch from './forms/Switch';
 
 const NavBar = ({ readGlobalState, writeGlobalState }) => {
 	const { selectedColorMode } = readGlobalState;
@@ -42,6 +41,10 @@ const NavBar = ({ readGlobalState, writeGlobalState }) => {
 						? 'Switch to dark mode'
 						: 'Switch to light mode'}
 				</Button>
+				<Switch
+					readGlobalState={readGlobalState}
+					writeGlobalState={writeGlobalState}
+				/>
 			</NavItem>
 		</Nav>
 	);
