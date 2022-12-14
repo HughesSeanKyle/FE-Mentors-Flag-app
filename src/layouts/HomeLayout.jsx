@@ -1,6 +1,7 @@
 import { useRef } from 'react';
-import { Container, Spinner } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import CountryCard from '../components/cards/CountryCard';
+import SearchBar from '../components/forms/SearchBar';
 import '../App.css';
 
 const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
@@ -28,7 +29,33 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 	};
 
 	return (
-		<Container className="home-layout-display">{mapCountries()}</Container>
+		<Container>
+			<div>
+				<ul>
+					<li>
+						<SearchBar />
+					</li>
+					<li>
+						<form className="form-inline">
+							<input
+								className="form-control mr-sm-2"
+								type="search"
+								placeholder="Search"
+								aria-label="Search"
+							/>
+							<button
+								className="btn btn-outline-success my-2 my-sm-0"
+								type="submit"
+							>
+								Search
+							</button>
+						</form>
+					</li>
+				</ul>
+			</div>
+
+			<div className="home-layout-display">{mapCountries()}</div>
+		</Container>
 	);
 };
 
