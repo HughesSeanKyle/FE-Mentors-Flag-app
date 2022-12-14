@@ -87,4 +87,22 @@ html {
   padding-left: 27px;
 }
 
+/* Card */
+.card-light {
+  background-color: var(--light-mode-element);
+}
+
+.card-dark {
+  background-color: var(--dark-mode-element);
+}
+
+.card-light-text {
+  color: var(--light-mode-text);
+}
+
+.card-dark-text {
+  color: var(--dark-mode-text);
+}
+
+
 

@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 
 import { getAllCountries } from './api/getCountries';
 import NavBar from './components/navs/NavBar';
-import CountryCard from './components/cards/CountryCard';
+import HomeLayout from './layouts/HomeLayout';
+import CountryDetailsLayout from './layouts/CountryDetailsLayout';
+
 import './App.css';
 
 function App() {
@@ -46,15 +48,8 @@ function App() {
 					writeGlobalState={writeGlobalState}
 				/>
 				<Routes>
-					<Route
-						path="/"
-						element={
-							<div>
-								<CountryCard />
-							</div>
-						}
-					/>
-					<Route path="/country/:name" element={<div>Flag by ID</div>} />
+					<Route path="/" element={<HomeLayout />} />
+					<Route path="/country/:name" element={<CountryDetailsLayout />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
