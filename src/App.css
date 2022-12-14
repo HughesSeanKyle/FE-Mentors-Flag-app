@@ -104,5 +104,14 @@ html {
   color: var(--dark-mode-text);
 }
 
+/* Layouts */
+.home-layout-display {
+  height: 100vh;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 50px 20px;
+}
+
 
 
