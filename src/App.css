@@ -8,6 +8,10 @@ body,
   font-family: 'Nunito Sans', sans-serif;
 }
 
+#root {
+  height: 1220rem;
+}
+
 /* Light/Dark Theme colors */
 html {
   --dark-mode-element: hsl(209, 23%, 22%);
@@ -21,12 +25,12 @@ html {
 /* Global Parent */
 .app-light {
   background-color: var(--light-mode-bg);
-  height: 100vh;
+  height: 100%;
 }
 
 .app-dark {
   background-color: var(--dark-mode-bg);
-  height: 100vh;
+  height: 100%;
 }
 
 /* NavBar */
@@ -106,7 +110,7 @@ html {
 }
 
 .card__card-img {
-  float: left;
+  float: right;
 	width: 100%;
 	height: 150px;
 	object-fit: cover;
