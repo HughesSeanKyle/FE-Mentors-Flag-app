@@ -2,7 +2,8 @@ import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { getAllCountries } from './api/getCountries';
-import NavBar from './components/NavBar';
+import NavBar from './components/navs/NavBar';
+import CountryCard from './components/cards/CountryCard';
 import './App.css';
 
 function App() {
@@ -45,7 +46,14 @@ function App() {
 					writeGlobalState={writeGlobalState}
 				/>
 				<Routes>
-					<Route path="/" element={<div>All flags</div>} />
+					<Route
+						path="/"
+						element={
+							<div>
+								<CountryCard />
+							</div>
+						}
+					/>
 					<Route path="/country/:name" element={<div>Flag by ID</div>} />
 				</Routes>
 			</BrowserRouter>
