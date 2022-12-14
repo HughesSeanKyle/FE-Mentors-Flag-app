@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container } from 'reactstrap';
+import { useRef } from 'react';
+import { Container, Spinner } from 'reactstrap';
 import CountryCard from '../components/cards/CountryCard';
 import '../App.css';
 
@@ -20,8 +20,8 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 					capital={capital}
 					flags={flags}
 					name={name}
-					selectedColorMode={selectedColorMode}
 					key={name.common}
+					readGlobalState={readGlobalState}
 				/>
 			);
 		});

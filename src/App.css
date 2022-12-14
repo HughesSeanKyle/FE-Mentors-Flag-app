@@ -100,13 +100,22 @@ html {
   background-color: var(--dark-mode-element);
 }
 
+.card-light-text-heading {
+  color: var(--light-mode-text);
+  font-weight: 800;
+}
+
+.card-dark-text-heading {
+  color: var(--dark-mode-text);
+  font-weight: 800;
+}
+
 .card-light-text {
   color: var(--light-mode-text);
 }
 
 .card-dark-text {
   color: var(--dark-mode-text);
-  margin-bottom: 0px;
 }
 
 .card__card-img {

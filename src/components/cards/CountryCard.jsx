@@ -1,15 +1,25 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import {
+	Card,
+	CardImg,
+	CardText,
+	CardBody,
+	CardTitle,
+	Spinner,
+} from 'reactstrap';
 import '../../App.css';
 
 const CountryCard = ({
-	selectedColorMode,
 	altSpellings,
 	population,
 	region,
 	capital,
 	flags,
+	name,
+	readGlobalState,
 }) => {
+	const { selectedColorMode } = readGlobalState;
+
 	// From source get the
 	// 1. Country
 	// 2. Population
@@ -26,15 +36,43 @@ const CountryCard = ({
 					src={flags.png}
 					alt="Card image cap"
 				/>
-				<CardBody
-					className={
-						selectedColorMode === 'light' ? 'card-light-text' : 'card-dark-text'
-					}
-				>
-					<CardTitle>Country name</CardTitle>
-					<CardText className="m-0">population</CardText>
-					<CardText className="m-0">region</CardText>
-					<CardText className="m-0">capital</CardText>
+				<CardBody>
+					<CardTitle
+						className={
+							selectedColorMode === 'light'
+								? 'card-light-text-heading'
+								: 'card-dark-text-heading'
+						}
+					>
+						{name.common}
+					</CardTitle>
+					<CardText
+						className={
+							selectedColorMode === 'light'
+								? 'card-light-text m-0'
+								: 'card-dark-text m-0'
+						}
+					>
+						population
+					</CardText>
+					<CardText
+						className={
+							selectedColorMode === 'light'
+								? 'card-light-text m-0'
+								: 'card-dark-text m-0'
+						}
+					>
+						region
+					</CardText>
+					<CardText
+						className={
+							selectedColorMode === 'light'
+								? 'card-light-text m-0'
+								: 'card-dark-text m-0'
+						}
+					>
+						capital
+					</CardText>
 				</CardBody>
 			</Card>
 		</div>
