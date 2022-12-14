@@ -9,7 +9,7 @@ body,
 }
 
 #root {
-  height: 1220rem;
+  height: 1374rem;
 }
 
 /* Light/Dark Theme colors */
@@ -94,10 +94,12 @@ html {
 /* Card */
 .card-light {
   background-color: var(--light-mode-element);
+  height: 327px;
 }
 
 .card-dark {
   background-color: var(--dark-mode-element);
+  height: 327px;
 }
 
 .card-light-text-heading {
