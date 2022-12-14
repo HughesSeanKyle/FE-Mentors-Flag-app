@@ -53,8 +53,10 @@ html {
 }
 
 .nav__switch-color-mode-light {
-  border-color: var(--light-mode-element);
-  background-color: var(--light-mode-bg);
+  margin-top: 6.3px;
+  border-color: var(--dark-mode-element) !important;
+  background-color: var(--light-mode-bg) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-4 -4 8 8%27%3e%3ccircle r=%273%27 fill=%27rgba%280, 0, 0, 0.25%29%27/%3e%3c/svg%3e") !important;
 }
 
 .nav__switch-color-mode-light:focus {
@@ -63,7 +65,8 @@ html {
 }
 
 .nav__switch-color-mode-dark:checked {
-  border-color: var(--dark-mode-element);
+  margin-top: 6.3px;
+  border-color: var(--light-mode-element);
   background-color: var(--dark-mode-bg);
 }
 
