@@ -20,7 +20,7 @@ import '../../App.css';
 
 const SearchBar = () => {
 	return (
-		<Form className="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+		<Form className="navbar-search navbar-search-dark form-inline mr-3 mt-4 d-none d-md-flex ml-lg-auto">
 			<FormGroup className="mb-0">
 				<InputGroup className="input-group-alternative">
 					<InputGroupText className="search-bar__icon-dark">

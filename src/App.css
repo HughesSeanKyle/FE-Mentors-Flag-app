@@ -140,18 +140,22 @@ html {
 
 .search-bar-light {
 	border-left: none;
+	border-color: var(--light-mode-element);
 	background-color: var(--light-mode-element);
 }
 
 .search-bar-dark {
 	border-left: none;
+	border-color: var(--dark-mode-element);
 	background-color: var(--dark-mode-element);
 }
 
 .search-bar__icon-light {
 	background-color: var(--light-mode-element);
+	border-color: var(--light-mode-element);
 }
 
 .search-bar__icon-dark {
 	background-color: var(--dark-mode-element);
+	border-color: var(--dark-mode-element);
 }
