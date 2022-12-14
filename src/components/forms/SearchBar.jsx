@@ -1,20 +1,6 @@
 import React from 'react';
-import { FaBeer, FaMoon, FaSun } from 'react-icons/fa';
-import {
-	DropdownMenu,
-	DropdownItem,
-	UncontrolledDropdown,
-	DropdownToggle,
-	Form,
-	FormGroup,
-	InputGroupText,
-	Input,
-	InputGroup,
-	Navbar,
-	Nav,
-	Container,
-	Media,
-} from 'reactstrap';
+
+import { Form, FormGroup, InputGroupText, Input, InputGroup } from 'reactstrap';
 
 import '../../App.css';
 

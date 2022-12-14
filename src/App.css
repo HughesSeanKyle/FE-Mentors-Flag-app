@@ -133,28 +133,41 @@ html {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-gap: 40px;
-	padding: 50px 20px;
+	padding: 10px 20px;
 }
 
-/* Search Bar */
+/* Search and Filter Bar */
+
+.search-filter-display {
+	display: flex;
+	direction: row;
+	justify-content: space-between;
+	list-style: none;
+	padding: 0px 20px;
+}
 
 .search-bar-dimensions {
 	width: 25rem;
-	height: 50px;
+	height: 40px;
+}
+
+.filter-bar-dimensions {
+	width: 12rem;
+	height: 40px;
 }
 
 .search-bar-light {
 	border-left: none;
 	border-color: var(--light-mode-element);
 	background-color: var(--light-mode-element);
-	height: 50px;
+	height: 40px;
 }
 
 .search-bar-dark {
 	border-left: none;
 	border-color: var(--dark-mode-element);
 	background-color: var(--dark-mode-element);
-	height: 50px;
+	height: 40px;
 }
 
 .search-bar__icon-light {

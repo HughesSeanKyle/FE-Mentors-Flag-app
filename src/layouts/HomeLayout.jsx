@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { Container, Row } from 'reactstrap';
 import CountryCard from '../components/cards/CountryCard';
 import SearchBar from '../components/forms/SearchBar';
+import FilterSelectBar from '../components/forms/FilterSelectBar';
+
 import '../App.css';
 
 const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
@@ -31,25 +33,12 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 	return (
 		<Container>
 			<div>
-				<ul style={{ 'list-style': 'none' }}>
+				<ul className="search-filter-display">
 					<li>
 						<SearchBar />
 					</li>
 					<li>
-						<form className="form-inline">
-							<input
-								className="form-control mr-sm-2"
-								type="search"
-								placeholder="Search"
-								aria-label="Search"
-							/>
-							<button
-								className="btn btn-outline-success my-2 my-sm-0"
-								type="submit"
-							>
-								Search
-							</button>
-						</form>
+						<FilterSelectBar />
 					</li>
 				</ul>
 			</div>
