@@ -24,6 +24,11 @@ const Switch = ({ readGlobalState, writeGlobalState }) => {
 			<FormGroup switch>
 				{selectedColorMode === 'light' ? <FaSun /> : <FaMoon />}
 				<Input
+					className={
+						selectedColorMode === 'light'
+							? 'nav__switch-color-mode-light'
+							: 'nav__switch-color-mode-dark'
+					}
 					role="button"
 					type="switch"
 					checked={selectedColorMode === 'light' ? false : true}
@@ -32,7 +37,7 @@ const Switch = ({ readGlobalState, writeGlobalState }) => {
 					}}
 				/>
 
-				<Label className="navbar__switch__icon" check>
+				<Label check>
 					{selectedColorMode === 'light' ? 'light mode' : 'dark mode'}
 				</Label>
 			</FormGroup>

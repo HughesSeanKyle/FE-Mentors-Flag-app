@@ -52,12 +52,32 @@ html {
   color: var(--dark-mode-text);
 }
 
+.nav__switch-color-mode-light {
+  border-color: var(--light-mode-element);
+  background-color: var(--light-mode-bg);
+}
+
+.nav__switch-color-mode-light:focus {
+  box-shadow: none;
+  border-color: none !important;
+}
+
+.nav__switch-color-mode-dark:checked {
+  border-color: var(--dark-mode-element);
+  background-color: var(--dark-mode-bg);
+}
+
+.nav__switch-color-mode-dark:focus {
+  box-shadow: none;
+}
+
+
 .navbar__switch {
   padding-right: 45px;
 }
 
 .navbar__switch__icon {
-  margin-right: '5px';
+  background-color: var(--dark-mode-bg);
 }
 
 .navbar__logo {
