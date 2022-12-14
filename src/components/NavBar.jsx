@@ -1,4 +1,4 @@
-import { Button, Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink, Row } from 'reactstrap';
 import Switch from './forms/Switch';
 import '../App.css';
 
@@ -11,7 +11,7 @@ const NavBar = ({ readGlobalState, writeGlobalState }) => {
 			className={selectedColorMode === 'light' ? 'navbar-light' : 'navbar-dark'}
 			pills
 		>
-			<NavItem>
+			<NavItem className="navbar__logo">
 				<NavLink
 					className={
 						selectedColorMode === 'light'

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Row } from 'reactstrap';
+import { FaBeer, FaMoon, FaSun } from 'react-icons/fa';
+import '../../App.css';
 
 const Switch = ({ readGlobalState, writeGlobalState }) => {
 	const { selectedColorMode } = readGlobalState;
@@ -20,6 +22,7 @@ const Switch = ({ readGlobalState, writeGlobalState }) => {
 	return (
 		<Form>
 			<FormGroup switch>
+				{selectedColorMode === 'light' ? <FaSun /> : <FaMoon />}
 				<Input
 					role="button"
 					type="switch"
@@ -28,10 +31,9 @@ const Switch = ({ readGlobalState, writeGlobalState }) => {
 						onColorModeChange();
 					}}
 				/>
-				<Label check>
-					{selectedColorMode === 'light'
-						? 'Switch to dark mode'
-						: 'Switch to light mode'}
+
+				<Label className="navbar__switch__icon" check>
+					{selectedColorMode === 'light' ? 'light mode' : 'dark mode'}
 				</Label>
 			</FormGroup>
 		</Form>

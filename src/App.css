@@ -53,7 +53,15 @@ html {
 }
 
 .navbar__switch {
-  padding-right: 15px;
+  padding-right: 45px;
+}
+
+.navbar__switch__icon {
+  margin-right: '5px';
+}
+
+.navbar__logo {
+  padding-left: 27px;
 }
 
 
