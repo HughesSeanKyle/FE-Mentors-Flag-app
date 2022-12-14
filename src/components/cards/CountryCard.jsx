@@ -2,7 +2,14 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 import '../../App.css';
 
-const CountryCard = (props) => {
+const CountryCard = ({
+	selectedColorMode,
+	altSpellings,
+	population,
+	region,
+	capital,
+	flags,
+}) => {
 	// From source get the
 	// 1. Country
 	// 2. Population
@@ -10,19 +17,24 @@ const CountryCard = (props) => {
 	// 4. Capital
 	return (
 		<div>
-			<Card>
+			<Card
+				className={selectedColorMode === 'light' ? 'card-light' : 'card-dark'}
+			>
 				<CardImg
 					top
-					width="20%"
-					height="30%"
-					src="https://flagcdn.com/w320/mr.png"
+					className="card__card-img"
+					src={flags.png}
 					alt="Card image cap"
 				/>
-				<CardBody>
+				<CardBody
+					className={
+						selectedColorMode === 'light' ? 'card-light-text' : 'card-dark-text'
+					}
+				>
 					<CardTitle>Country name</CardTitle>
-					<CardText>population</CardText>
-					<CardText>region</CardText>
-					<CardText>capital</CardText>
+					<CardText className="m-0">population</CardText>
+					<CardText className="m-0">region</CardText>
+					<CardText className="m-0">capital</CardText>
 				</CardBody>
 			</Card>
 		</div>

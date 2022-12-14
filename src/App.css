@@ -102,12 +102,20 @@ html {
 
 .card-dark-text {
   color: var(--dark-mode-text);
+  margin-bottom: 0px;
+}
+
+.card__card-img {
+  float: left;
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
 }
 
 /* Layouts */
 .home-layout-display {
   height: 100vh;
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
   padding: 50px 20px;

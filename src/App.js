@@ -48,7 +48,15 @@ function App() {
 					writeGlobalState={writeGlobalState}
 				/>
 				<Routes>
-					<Route path="/" element={<HomeLayout />} />
+					<Route
+						path="/"
+						element={
+							<HomeLayout
+								readGlobalState={readGlobalState}
+								writeGlobalState={writeGlobalState}
+							/>
+						}
+					/>
 					<Route path="/country/:name" element={<CountryDetailsLayout />} />
 				</Routes>
 			</BrowserRouter>
