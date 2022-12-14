@@ -53,7 +53,7 @@ const CountryCard = ({
 								: 'card-dark-text m-0'
 						}
 					>
-						population
+						population: {population.toLocaleString()}
 					</CardText>
 					<CardText
 						className={
@@ -62,7 +62,7 @@ const CountryCard = ({
 								: 'card-dark-text m-0'
 						}
 					>
-						region
+						region: {region}
 					</CardText>
 					<CardText
 						className={
@@ -71,7 +71,7 @@ const CountryCard = ({
 								: 'card-dark-text m-0'
 						}
 					>
-						capital
+						capital: {capital}
 					</CardText>
 				</CardBody>
 			</Card>
