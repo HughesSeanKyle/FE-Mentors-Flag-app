@@ -31,7 +31,7 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 	return (
 		<Container>
 			<div>
-				<ul>
+				<ul style={{ 'list-style': 'none' }}>
 					<li>
 						<SearchBar />
 					</li>

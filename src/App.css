@@ -138,16 +138,23 @@ html {
 
 /* Search Bar */
 
+.search-bar-dimensions {
+	width: 25rem;
+	height: 50px;
+}
+
 .search-bar-light {
 	border-left: none;
 	border-color: var(--light-mode-element);
 	background-color: var(--light-mode-element);
+	height: 50px;
 }
 
 .search-bar-dark {
 	border-left: none;
 	border-color: var(--dark-mode-element);
 	background-color: var(--dark-mode-element);
+	height: 50px;
 }
 
 .search-bar__icon-light {
