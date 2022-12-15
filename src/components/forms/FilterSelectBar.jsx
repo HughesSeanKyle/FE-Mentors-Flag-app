@@ -20,7 +20,7 @@ const FilterSelectBar = ({
 				className={
 					selectedColorMode === 'light'
 						? 'form-select search-bar-light search-filter__text-light'
-						: 'form-select search-bar-dark search-filter__text-dark'
+						: 'form-select search-bar-dark search-filter__text-dark filter__select-indicator-dark'
 				}
 				placeholder="Filter"
 				type="select"
