@@ -195,10 +195,20 @@ html {
 	background-color: var(--light-mode-element);
 	border-color: var(--light-mode-element);
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	color: var(--light-mode-text);
 }
 
 .search-bar__icon-dark {
 	background-color: var(--dark-mode-element);
 	border-color: var(--dark-mode-element);
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	color: var(--light-mode-text);
+}
+
+.search-filter__text-light {
+	color: var(--light-mode-text);
+}
+
+.search-filter__text-dark {
+	color: var(--dark-mode-text);
 }

@@ -18,13 +18,20 @@ const SearchBar = ({ readGlobalState, writeGlobalState }) => {
 								: 'search-bar__icon-dark'
 						}
 					>
-						<i className="fa fa-search" />
+						<i
+							style={
+								selectedColorMode === 'light'
+									? { color: 'hsl(200, 15%, 8%)' }
+									: { color: 'hsl(0, 0%, 100%)' }
+							}
+							className="fa fa-search"
+						/>
 					</InputGroupText>
 					<Input
 						className={
 							selectedColorMode === 'light'
 								? 'search-bar-light'
-								: 'search-bar-dark'
+								: 'search-bar-dark search-filter__text-light'
 						}
 						placeholder="Search"
 						type="text"
