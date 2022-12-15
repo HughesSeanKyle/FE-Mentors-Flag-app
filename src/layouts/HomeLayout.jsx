@@ -7,7 +7,6 @@ import FilterSelectBar from '../components/forms/FilterSelectBar';
 import '../App.css';
 
 const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
-	// This comp to manage search and filter logic
 	const { selectedColorMode, allCountries } = readGlobalState;
 
 	const mapCountries = () => {
@@ -35,10 +34,16 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 			<div>
 				<ul className="search-filter-display">
 					<li>
-						<SearchBar />
+						<SearchBar
+							readGlobalState={readGlobalState}
+							writeGlobalState={writeGlobalState}
+						/>
 					</li>
 					<li>
-						<FilterSelectBar />
+						<FilterSelectBar
+							readGlobalState={readGlobalState}
+							writeGlobalState={writeGlobalState}
+						/>
 					</li>
 				</ul>
 			</div>

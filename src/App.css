@@ -94,11 +94,13 @@ html {
 .card-light {
 	background-color: var(--light-mode-element);
 	height: 327px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .card-dark {
 	background-color: var(--dark-mode-element);
 	height: 327px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .card-light-text-heading {
@@ -144,6 +146,7 @@ html {
 	justify-content: space-between;
 	list-style: none;
 	padding: 0px 20px;
+	margin-top: 1rem;
 }
 
 .search-bar-dimensions {
@@ -161,6 +164,7 @@ html {
 	border-color: var(--light-mode-element);
 	background-color: var(--light-mode-element);
 	height: 40px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .search-bar-dark {
@@ -168,14 +172,33 @@ html {
 	border-color: var(--dark-mode-element);
 	background-color: var(--dark-mode-element);
 	height: 40px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.search-bar-light:focus {
+	box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+		rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+		rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+	border-color: var(--dark-mode-element);
+	background-color: var(--light-mode-element);
+}
+
+.search-bar-dark:focus {
+	box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+		rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+		rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+	border-color: var(--light-mode-element);
+	background-color: var(--dark-mode-element);
 }
 
 .search-bar__icon-light {
 	background-color: var(--light-mode-element);
 	border-color: var(--light-mode-element);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .search-bar__icon-dark {
 	background-color: var(--dark-mode-element);
 	border-color: var(--dark-mode-element);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
