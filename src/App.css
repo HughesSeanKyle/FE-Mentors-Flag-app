@@ -79,7 +79,8 @@ html {
 }
 
 .navbar__switch {
-	padding-right: 45px;
+	padding: 9px 108px 9px 0;
+	font-weight: 800;
 }
 
 .navbar__switch__icon {
@@ -87,7 +88,9 @@ html {
 }
 
 .navbar__logo {
-	padding-left: 27px;
+	padding: 9px 0 9px 90px;
+	font-weight: 800;
+	font-size: larger;
 }
 
 /* Card */
