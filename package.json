@@ -2,6 +2,9 @@
 	"name": "flag-app",
 	"version": "0.1.0",
 	"private": true,
+	"author": "Kyle",
+	"license": "MIT",
+	"homepage": "",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.1",
 		"@testing-library/react": "^12.1.2",
