@@ -4,12 +4,14 @@ import { Form, FormGroup, InputGroupText, Input, InputGroup } from 'reactstrap';
 
 import '../../App.css';
 
-const FilterSelectBar = ({ readGlobalState, writeGlobalState }) => {
+const FilterSelectBar = ({
+	readGlobalState,
+	readHomeState,
+	onSearchOrFilterUpdate,
+}) => {
 	const { selectedColorMode, allCountries } = readGlobalState;
 
-	const [selectedField, setSelectedField] = useState('Filter by Region');
-
-	console.log('selectedField', selectedField);
+	const { filterSelection } = readHomeState;
 
 	return (
 		<div className="filter-bar-dimensions">
@@ -22,7 +24,7 @@ const FilterSelectBar = ({ readGlobalState, writeGlobalState }) => {
 				}
 				placeholder="Filter"
 				type="select"
-				onChange={(e) => setSelectedField(e.target.value)}
+				onChange={(e) => onSearchOrFilterUpdate('FilterBar', e.target.value)}
 			>
 				<option
 					className={
@@ -30,9 +32,9 @@ const FilterSelectBar = ({ readGlobalState, writeGlobalState }) => {
 							? 'search-filter__text-light'
 							: 'search-filter__text-dark'
 					}
-					value={'Filter by Region'}
+					value={'All Regions'}
 				>
-					{selectedField !== 'Filter by Region' ? 'All' : 'Filter by Region'}
+					All Regions
 				</option>
 				<option
 					className={
@@ -50,9 +52,9 @@ const FilterSelectBar = ({ readGlobalState, writeGlobalState }) => {
 							? 'search-filter__text-light'
 							: 'search-filter__text-dark'
 					}
-					value={'America'}
+					value={'Americas'}
 				>
-					America
+					Americas
 				</option>
 				<option
 					className={
@@ -80,9 +82,9 @@ const FilterSelectBar = ({ readGlobalState, writeGlobalState }) => {
 							? 'search-filter__text-light'
 							: 'search-filter__text-dark'
 					}
-					value={'Oceana'}
+					value={'Oceania'}
 				>
-					Oceana
+					Oceania
 				</option>
 			</select>
 		</div>

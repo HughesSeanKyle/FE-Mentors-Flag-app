@@ -35,6 +35,21 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 				);
 			}
 
+			if (filterSelection && region.includes(filterSelection)) {
+				return (
+					<CountryCard
+						altSpellings={altSpellings}
+						population={population}
+						region={region}
+						capital={capital}
+						flags={flags}
+						name={name}
+						key={name.common}
+						readGlobalState={readGlobalState}
+					/>
+				);
+			}
+
 			if (!searchTerm && !filterSelection && !componentRequesting) {
 				return (
 					<CountryCard
@@ -53,8 +68,23 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 	};
 
 	// helpers
-	const onSearchOrFilterUpdate = (term) => {
-		setSearchTerm(term);
+	const onSearchOrFilterUpdate = (compLocation, term) => {
+		if (compLocation === 'SearchBar') {
+			setFilterSelection(null);
+			setSearchTerm(term);
+			return;
+		}
+
+		if (compLocation === 'FilterBar') {
+			if (term === 'All Regions') {
+				setSearchTerm(null);
+				setFilterSelection('');
+				return;
+			}
+			setSearchTerm(null);
+			setFilterSelection(term);
+			return;
+		}
 	};
 
 	return (
@@ -81,7 +111,9 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 				</ul>
 			</div>
 
-			<div className="home-layout-display">{mapCountries(searchTerm)}</div>
+			<div className="home-layout-display">
+				{mapCountries(searchTerm, filterSelection)}
+			</div>
 		</Container>
 	);
 };

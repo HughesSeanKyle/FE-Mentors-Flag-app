@@ -46,7 +46,10 @@ const SearchBar = ({
 				placeholder="Search"
 				type="text"
 				onChange={(e) =>
-					onSearchOrFilterUpdate(firstCharToUpperCase(e.target.value))
+					onSearchOrFilterUpdate(
+						'SearchBar',
+						firstCharToUpperCase(e.target.value)
+					)
 				}
 			/>
 		</InputGroup>
