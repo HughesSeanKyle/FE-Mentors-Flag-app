@@ -57,7 +57,15 @@ function App() {
 							/>
 						}
 					/>
-					<Route path="/country/:name" element={<CountryDetailsLayout />} />
+					<Route
+						path="/country/:name"
+						element={
+							<CountryDetailsLayout
+								readGlobalState={readGlobalState}
+								writeGlobalState={writeGlobalState}
+							/>
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>
