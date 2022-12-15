@@ -9,7 +9,7 @@ body,
 }
 
 #root {
-	height: 1374rem;
+	height: 1458rem;
 }
 
 /* Light/Dark Theme colors */
@@ -39,6 +39,12 @@ html {
 	display: flex;
 	justify-content: space-between;
 	color: var(--light-mode-text);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .navbar-dark {
@@ -46,6 +52,12 @@ html {
 	display: flex;
 	justify-content: space-between;
 	color: var(--dark-mode-text);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .navbar-light-text {
@@ -92,6 +104,8 @@ html {
 	font-weight: 800;
 	font-size: larger;
 }
+
+/* _____________HOME PAGE_____________ */
 
 /* Card */
 .card-light {
@@ -217,3 +231,5 @@ html {
 .search-filter__text-dark {
 	color: var(--dark-mode-text);
 }
+
+/* _____________FLAG DETAIL PAGE_____________ */
