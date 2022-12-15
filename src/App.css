@@ -157,6 +157,7 @@ html {
 .filter-bar-dimensions {
 	width: 12rem;
 	height: 40px;
+	margin-top: 25px;
 }
 
 .search-bar-light {

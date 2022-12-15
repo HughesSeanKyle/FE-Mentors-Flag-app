@@ -4,8 +4,20 @@ import { Form, FormGroup, InputGroupText, Input, InputGroup } from 'reactstrap';
 
 import '../../App.css';
 
-const SearchBar = ({ readGlobalState, writeGlobalState }) => {
+const SearchBar = ({
+	readGlobalState,
+	readHomeState,
+	onSearchOrFilterUpdate,
+}) => {
 	const { selectedColorMode, allCountries } = readGlobalState;
+
+	// Helper
+	const firstCharToUpperCase = (string) => {
+		if (!string) {
+			return null;
+		}
+		return string[0].toUpperCase() + string.slice(1).toLowerCase();
+	};
 
 	return (
 		<Form className="ml-lg-auto mr-3 mt-4">
@@ -35,6 +47,9 @@ const SearchBar = ({ readGlobalState, writeGlobalState }) => {
 						}
 						placeholder="Search"
 						type="text"
+						onChange={(e) =>
+							onSearchOrFilterUpdate(firstCharToUpperCase(e.target.value))
+						}
 					/>
 				</InputGroup>
 			</FormGroup>
