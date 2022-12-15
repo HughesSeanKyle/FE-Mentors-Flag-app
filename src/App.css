@@ -152,6 +152,7 @@ html {
 .search-bar-dimensions {
 	width: 25rem;
 	height: 40px;
+	margin-top: 25px;
 }
 
 .filter-bar-dimensions {
