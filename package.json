@@ -4,7 +4,7 @@
 	"private": true,
 	"author": "kyle-sean-hughes",
 	"license": "MIT",
-	"homepage": "",
+	"homepage": "https://fe-mentors-flag-app.vercel.app/",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.1",
 		"@testing-library/react": "^12.1.2",
