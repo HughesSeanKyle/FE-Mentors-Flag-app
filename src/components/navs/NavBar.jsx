@@ -1,6 +1,6 @@
 import { Nav, NavItem, NavLink, Row } from 'reactstrap';
-import Switch from './forms/Switch';
-import '../App.css';
+import Switch from '../forms/Switch';
+import '../../App.css';
 
 const NavBar = ({ readGlobalState, writeGlobalState }) => {
 	const { selectedColorMode } = readGlobalState;

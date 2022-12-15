@@ -1,14 +1,21 @@
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Button } from 'reactstrap';
-import NavBar from './components/NavBar';
+
+import { getAllCountries } from './api/getCountries';
+import NavBar from './components/navs/NavBar';
+import HomeLayout from './layouts/HomeLayout';
+import CountryDetailsLayout from './layouts/CountryDetailsLayout';
+
 import './App.css';
 
 function App() {
 	const [selectedColorMode, setSelectedColorMode] = useState(null);
+	const [allCountries, setAllCountries] = useState(null);
 
-	const readGlobalState = { selectedColorMode };
-	const writeGlobalState = { setSelectedColorMode };
+	const readGlobalState = { selectedColorMode, allCountries };
+	const writeGlobalState = { setSelectedColorMode, setAllCountries };
+
+	console.log('readGlobalState', readGlobalState);
 
 	const setInitColorMode = () => {
 		let colorMode = JSON.parse(localStorage.getItem('colorMode'));
@@ -22,6 +29,15 @@ function App() {
 
 	useEffect(() => {
 		setInitColorMode();
+		(async () => {
+			const allCountriesResp = await getAllCountries();
+
+			if (allCountriesResp.data) {
+				setAllCountries(allCountriesResp.data);
+			} else {
+				setAllCountries(allCountriesResp.error);
+			}
+		})();
 	}, []);
 
 	return (
@@ -32,8 +48,24 @@ function App() {
 					writeGlobalState={writeGlobalState}
 				/>
 				<Routes>
-					<Route path="/" element={<div>All flags</div>} />
-					<Route path="/flag/:flagId" element={<div>Flag by ID</div>} />
+					<Route
+						path="/"
+						element={
+							<HomeLayout
+								readGlobalState={readGlobalState}
+								writeGlobalState={writeGlobalState}
+							/>
+						}
+					/>
+					<Route
+						path="/country/:name"
+						element={
+							<CountryDetailsLayout
+								readGlobalState={readGlobalState}
+								writeGlobalState={writeGlobalState}
+							/>
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>
