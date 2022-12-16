@@ -14,6 +14,9 @@ import '../../App.css';
 const CountryDetailsCard = ({ readGlobalState }) => {
 	const { selectedColorMode } = readGlobalState;
 
+	// use abbreviated country names and show full name on btn hover
+	const sampleBorderBtnArr = ['Spain', 'UK', 'Ireland'];
+
 	return (
 		<div>
 			<Card
@@ -118,33 +121,19 @@ const CountryDetailsCard = ({ readGlobalState }) => {
 						Border Countries:{' '}
 					</p>
 					<div className="show-page__card-row-display__buttons">
-						<Button
-							className={
-								selectedColorMode === 'light'
-									? 'card-light-text show-page__card-row-display__text show-page__text-light'
-									: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
-							}
-						>
-							Spain
-						</Button>
-						<Button
-							className={
-								selectedColorMode === 'light'
-									? 'card-light-text show-page__card-row-display__text show-page__text-light'
-									: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
-							}
-						>
-							Uk
-						</Button>
-						<Button
-							className={
-								selectedColorMode === 'light'
-									? 'card-light-text show-page__card-row-display__text show-page__text-light'
-									: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
-							}
-						>
-							Ireland
-						</Button>
+						{sampleBorderBtnArr.map((borderCountry, index) => {
+							return (
+								<Button
+									className={
+										selectedColorMode === 'light'
+											? 'card-light-text show-page__card-row-display__text show-page__text-light'
+											: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
+									}
+								>
+									{borderCountry}
+								</Button>
+							);
+						})}
 					</div>
 				</Container>
 			</Card>
