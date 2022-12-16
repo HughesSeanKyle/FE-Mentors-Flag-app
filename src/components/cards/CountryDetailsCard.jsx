@@ -15,11 +15,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 	const { selectedColorMode, allCountries, showSelectedCountry } =
 		readGlobalState;
 
-	// use abbreviated country names and show full name on btn hover
-	const sampleBorderBtnArr = showSelectedCountry
-		? showSelectedCountry.borders
-		: ['Spain', 'UK', 'Ireland'];
-
+	// Conditional Comp rendering
 	const handleBorderBtnRender = () => {
 		if (showSelectedCountry.borders) {
 			return showSelectedCountry.borders.map((borderCountry, index) => {
@@ -39,14 +35,49 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 		} else {
 			return (
 				<div
-					className={
-						selectedColorMode === 'light' ? 'card-light-text' : 'card-dark-text'
-					}
+					// className={
+					// 	selectedColorMode === 'light' ? 'card-light-text' : 'card-dark-text'
+					// }
+					style={{ color: 'red' }}
 				>
 					This country has no neighboring countries
 				</div>
 			);
 		}
+	};
+
+	// Helpers
+	const getNativeCountryName = () => {
+		if (showSelectedCountry) {
+			const getNativeName = showSelectedCountry.name.nativeName;
+			console.log('getNativeName', getNativeName);
+			const nativeNameObjFirst = Object.values(getNativeName)[0].official;
+			console.log('nativeNameObjFirst', nativeNameObjFirst);
+			return nativeNameObjFirst;
+		}
+		return 'Native name not found';
+	};
+
+	const getCountryCurrency = () => {
+		if (showSelectedCountry) {
+			const getCurrency = showSelectedCountry.currencies;
+			console.log('getCurrency', getCurrency);
+			const currencyObjFirst = Object.values(getCurrency)[0].name;
+			console.log('currencyObjFirst', currencyObjFirst);
+			return currencyObjFirst;
+		}
+		return 'Currency not found';
+	};
+
+	const getCountryLanguages = () => {
+		if (showSelectedCountry) {
+			const getLangs = showSelectedCountry.languages;
+			console.log('getLangs', getLangs);
+			const langsValues = Object.values(getLangs);
+			console.log('langsValues', langsValues);
+			return langsValues.join(',');
+		}
+		return 'Languages not found';
 	};
 
 	return (
@@ -66,7 +97,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 							: 'card-dark-text-heading show-page__card-title'
 					}
 				>
-					name
+					{showSelectedCountry.name.common}
 				</CardTitle>
 				<CardBody className="show-page__card-text-columns">
 					<Container>
@@ -77,7 +108,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Native name:
+							Native name: {getNativeCountryName()}
 						</CardText>
 						<CardText
 							className={
@@ -86,7 +117,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Population:
+							Population: {showSelectedCountry.population.toLocaleString()}
 						</CardText>
 						<CardText
 							className={
@@ -95,7 +126,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Region:
+							Region: {showSelectedCountry.region}
 						</CardText>
 						<CardText
 							className={
@@ -104,7 +135,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Sub Region:
+							Sub Region: {showSelectedCountry.subregion}
 						</CardText>
 						<CardText
 							className={
@@ -113,7 +144,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Capital:
+							Capital: {showSelectedCountry.capital[0]}
 						</CardText>
 					</Container>
 					<Container>
@@ -124,7 +155,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Top Level Domain:
+							Top Level Domain: {showSelectedCountry.tld[0]}
 						</CardText>
 						<CardText
 							className={
@@ -133,7 +164,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Currencies:
+							Currencies: {getCountryCurrency()}
 						</CardText>
 						<CardText
 							className={
@@ -142,7 +173,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Languages:
+							Languages: {getCountryLanguages()}
 						</CardText>
 					</Container>
 				</CardBody>

@@ -265,7 +265,7 @@ html {
 	height: 100vh;
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 0.72fr 1fr;
 	grid-gap: 40px;
 	padding: 10px 20px;
 }
@@ -344,12 +344,12 @@ html {
 
 .show-page__card-light {
 	background-color: var(--light-mode-element);
-	height: 327px;
+	height: fit-content;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .show-page__card-dark {
 	background-color: var(--dark-mode-element);
-	height: 327px;
+	height: fit-content;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
