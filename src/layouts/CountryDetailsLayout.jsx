@@ -1,13 +1,20 @@
-import { useState } from 'react';
-import { Container, Row } from 'reactstrap';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { Container, Row, Media, Button } from 'reactstrap';
 import CountryCard from '../components/cards/CountryCard';
 import SearchBar from '../components/forms/SearchBar';
 import FilterSelectBar from '../components/forms/FilterSelectBar';
+import CountryDetailsCard from '../components/cards/CountryDetailsCard';
 
 import '../App.css';
 
-const CountryDetailsLayout = ({ readGlobalState, writeGlobalState }) => {
-	const { selectedColorMode, allCountries } = readGlobalState;
+const CountryDetailsLayout = ({
+	readGlobalState,
+	writeGlobalState,
+	onCountryDetailSelect,
+}) => {
+	const { selectedColorMode, showSelectedCountry } = readGlobalState;
 
 	const [searchTerm, setSearchTerm] = useState(null);
 	const [filterSelection, setFilterSelection] = useState(null);
@@ -15,104 +22,63 @@ const CountryDetailsLayout = ({ readGlobalState, writeGlobalState }) => {
 	const readHomeState = { searchTerm, filterSelection };
 	const writeHomeState = { setSearchTerm, setFilterSelection };
 
-	const mapCountries = (searchTerm, filterSelection, componentRequesting) => {
-		return allCountries?.map((country, index) => {
-			const { altSpellings, population, region, capital, flags, name } =
-				country;
+	const navigate = useNavigate();
 
-			if (searchTerm && name.common.includes(searchTerm)) {
-				return (
-					<CountryCard
-						altSpellings={altSpellings}
-						population={population}
-						region={region}
-						capital={capital}
-						flags={flags}
-						name={name}
-						key={name.common}
-						readGlobalState={readGlobalState}
-					/>
-				);
-			}
-
-			if (filterSelection && region.includes(filterSelection)) {
-				return (
-					<CountryCard
-						altSpellings={altSpellings}
-						population={population}
-						region={region}
-						capital={capital}
-						flags={flags}
-						name={name}
-						key={name.common}
-						readGlobalState={readGlobalState}
-					/>
-				);
-			}
-
-			if (!searchTerm && !filterSelection && !componentRequesting) {
-				return (
-					<CountryCard
-						altSpellings={altSpellings}
-						population={population}
-						region={region}
-						capital={capital}
-						flags={flags}
-						name={name}
-						key={name.common}
-						readGlobalState={readGlobalState}
-					/>
-				);
-			}
-		});
+	const onBackClick = () => {
+		navigate(-1);
 	};
 
-	// helpers
-	const onSearchOrFilterUpdate = (compLocation, term) => {
-		if (compLocation === 'SearchBar') {
-			setFilterSelection(null);
-			setSearchTerm(term);
-			return;
-		}
-
-		if (compLocation === 'FilterBar') {
-			if (term === 'All Regions') {
-				setSearchTerm(null);
-				setFilterSelection('');
-				return;
-			}
-			setSearchTerm(null);
-			setFilterSelection(term);
-			return;
-		}
-	};
+	useEffect(() => {
+		return () => {
+			onCountryDetailSelect(null);
+		};
+	}, []);
 
 	return (
 		<Container>
 			<div>
 				<ul className="search-filter-display">
 					<li>
-						<SearchBar
-							readGlobalState={readGlobalState}
-							writeGlobalState={writeGlobalState}
-							readHomeState={readHomeState}
-							onSearchOrFilterUpdate={onSearchOrFilterUpdate}
-						/>
-					</li>
-					<li>
-						<FilterSelectBar
-							readGlobalState={readGlobalState}
-							writeGlobalState={writeGlobalState}
-							readHomeState={readHomeState}
-							writeHomeState={writeHomeState}
-							onSearchOrFilterUpdate={onSearchOrFilterUpdate}
-						/>
+						<Button
+							onClick={() => onBackClick()}
+							className={
+								selectedColorMode === 'light'
+									? 'show-page__icon-light'
+									: 'show-page__icon-dark'
+							}
+						>
+							<i
+								style={
+									selectedColorMode === 'light'
+										? { color: 'hsl(200, 15%, 8%)' }
+										: { color: 'hsl(0, 0%, 100%)' }
+								}
+								className="fa fa-arrow-left"
+							/>{' '}
+							Back
+						</Button>
 					</li>
 				</ul>
 			</div>
 
-			<div className="home-layout-display">
-				{mapCountries(searchTerm, filterSelection)}
+			<div className="show-page-layout-display">
+				<Media
+					object
+					src={showSelectedCountry ? showSelectedCountry.flags.svg : null}
+					alt={showSelectedCountry ? showSelectedCountry.name.common : 'name'}
+					width="100%"
+					height="54%"
+					style={{ maxHeight: '450px' }}
+				/>
+				<Media body>
+					<CountryDetailsCard
+						readGlobalState={readGlobalState}
+						writeGlobalState={writeGlobalState}
+						readHomeState={readHomeState}
+						// To update onBorderSelect
+						onCountryDetailSelect={onCountryDetailSelect}
+					/>
+				</Media>
 			</div>
 		</Container>
 	);

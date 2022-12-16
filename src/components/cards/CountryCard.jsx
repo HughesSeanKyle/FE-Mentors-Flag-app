@@ -20,11 +20,6 @@ const CountryCard = ({
 }) => {
 	const { selectedColorMode } = readGlobalState;
 
-	// From source get the
-	// 1. Country
-	// 2. Population
-	// 3. Region
-	// 4. Capital
 	return (
 		<div>
 			<Card
