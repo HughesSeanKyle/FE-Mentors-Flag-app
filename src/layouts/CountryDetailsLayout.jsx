@@ -68,7 +68,7 @@ const CountryDetailsLayout = ({
 					alt={showSelectedCountry ? showSelectedCountry.name.common : 'name'}
 					width="100%"
 					height="54%"
-					style={{ maxHeight: '450px' }}
+					style={{ maxHeight: '450px', 'object-fit': 'cover' }}
 				/>
 				<Media body>
 					<CountryDetailsCard
