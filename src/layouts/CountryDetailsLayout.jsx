@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Media } from 'reactstrap';
+import { Container, Row, Media, Button } from 'reactstrap';
 import CountryCard from '../components/cards/CountryCard';
 import SearchBar from '../components/forms/SearchBar';
 import FilterSelectBar from '../components/forms/FilterSelectBar';
@@ -21,11 +21,23 @@ const CountryDetailsLayout = ({ readGlobalState, writeGlobalState }) => {
 			<div>
 				<ul className="search-filter-display">
 					<li>
-						<SearchBar
-							readGlobalState={readGlobalState}
-							writeGlobalState={writeGlobalState}
-							readHomeState={readHomeState}
-						/>
+						<Button
+							className={
+								selectedColorMode === 'light'
+									? 'show-page__icon-light'
+									: 'show-page__icon-dark'
+							}
+						>
+							<i
+								style={
+									selectedColorMode === 'light'
+										? { color: 'hsl(200, 15%, 8%)' }
+										: { color: 'hsl(0, 0%, 100%)' }
+								}
+								className="fa fa-arrow-left"
+							/>{' '}
+							Back
+						</Button>
 					</li>
 				</ul>
 			</div>

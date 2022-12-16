@@ -17,13 +17,14 @@ const CountryDetailsCard = ({ readGlobalState }) => {
 	return (
 		<div>
 			<Card
+				style={{ backgroundColor: 'transparent', border: 'none' }}
 				className={selectedColorMode === 'light' ? 'card-light' : 'card-dark'}
 			>
 				<CardTitle
 					className={
 						selectedColorMode === 'light'
-							? 'card-light-text-heading'
-							: 'card-dark-text-heading'
+							? 'card-light-text-heading show-page__card-title'
+							: 'card-dark-text-heading show-page__card-title'
 					}
 				>
 					name
@@ -107,11 +108,43 @@ const CountryDetailsCard = ({ readGlobalState }) => {
 					</Container>
 				</CardBody>
 				<Container className="show-page__card-row-display">
-					<Button>France</Button>
-					<div>
-						<Button>Spain</Button>
-						<Button>Uk</Button>
-						<Button>Ireland</Button>
+					<p
+						className={
+							selectedColorMode === 'light'
+								? 'card-light-text show-page__card-row-display__text'
+								: 'card-dark-text show-page__card-row-display__text'
+						}
+					>
+						Border Countries:{' '}
+					</p>
+					<div className="show-page__card-row-display__buttons">
+						<Button
+							className={
+								selectedColorMode === 'light'
+									? 'card-light-text show-page__card-row-display__text show-page__text-light'
+									: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
+							}
+						>
+							Spain
+						</Button>
+						<Button
+							className={
+								selectedColorMode === 'light'
+									? 'card-light-text show-page__card-row-display__text show-page__text-light'
+									: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
+							}
+						>
+							Uk
+						</Button>
+						<Button
+							className={
+								selectedColorMode === 'light'
+									? 'card-light-text show-page__card-row-display__text show-page__text-light'
+									: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
+							}
+						>
+							Ireland
+						</Button>
 					</div>
 				</Container>
 			</Card>
