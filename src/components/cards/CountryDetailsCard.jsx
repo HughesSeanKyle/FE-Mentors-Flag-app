@@ -50,6 +50,9 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 	const getNativeCountryName = () => {
 		if (showSelectedCountry) {
 			const getNativeName = showSelectedCountry.name.nativeName;
+			if (!getNativeName) {
+				return 'Native name not found';
+			}
 			console.log('getNativeName', getNativeName);
 			const nativeNameObjFirst = Object.values(getNativeName)[0].official;
 			console.log('nativeNameObjFirst', nativeNameObjFirst);
@@ -61,6 +64,9 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 	const getCountryCurrency = () => {
 		if (showSelectedCountry) {
 			const getCurrency = showSelectedCountry.currencies;
+			if (!getCurrency) {
+				return 'Currency not found';
+			}
 			console.log('getCurrency', getCurrency);
 			const currencyObjFirst = Object.values(getCurrency)[0].name;
 			console.log('currencyObjFirst', currencyObjFirst);
@@ -72,6 +78,9 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 	const getCountryLanguages = () => {
 		if (showSelectedCountry) {
 			const getLangs = showSelectedCountry.languages;
+			if (!getLangs) {
+				return 'Languages not found';
+			}
 			console.log('getLangs', getLangs);
 			const langsValues = Object.values(getLangs);
 			console.log('langsValues', langsValues);
@@ -144,7 +153,10 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Capital: {showSelectedCountry.capital[0]}
+							Capital:{' '}
+							{showSelectedCountry.capital
+								? showSelectedCountry.capital[0]
+								: 'none'}
 						</CardText>
 					</Container>
 					<Container>
