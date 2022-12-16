@@ -304,6 +304,10 @@ html {
 	grid-gap: 9px;
 }
 
+.show-page__card-row-display__no-buttons {
+	margin-top: 18px;
+}
+
 .show-page__icon-light {
 	background-color: var(--light-mode-element);
 	border-color: var(--light-mode-element);

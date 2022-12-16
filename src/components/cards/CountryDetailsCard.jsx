@@ -21,7 +21,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 		: ['Spain', 'UK', 'Ireland'];
 
 	const handleBorderBtnRender = () => {
-		if (showSelectedCountry?.borders) {
+		if (showSelectedCountry.borders) {
 			return showSelectedCountry.borders.map((borderCountry, index) => {
 				return (
 					<Button
@@ -37,7 +37,15 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 				);
 			});
 		} else {
-			return <div>This country has no borders</div>;
+			return (
+				<div
+					className={
+						selectedColorMode === 'light' ? 'card-light-text' : 'card-dark-text'
+					}
+				>
+					This country has no neighboring countries
+				</div>
+			);
 		}
 	};
 
@@ -148,7 +156,13 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 					>
 						Border Countries:{' '}
 					</p>
-					<div className="show-page__card-row-display__buttons">
+					<div
+						className={
+							showSelectedCountry.borders
+								? 'show-page__card-row-display__buttons'
+								: 'show-page__card-row-display__no-buttons'
+						}
+					>
 						{handleBorderBtnRender()}
 					</div>
 				</Container>
