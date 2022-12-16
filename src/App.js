@@ -11,9 +11,18 @@ import './App.css';
 function App() {
 	const [selectedColorMode, setSelectedColorMode] = useState(null);
 	const [allCountries, setAllCountries] = useState(null);
+	const [showSelectedCountry, setShowSelectedCountry] = useState(null);
 
-	const readGlobalState = { selectedColorMode, allCountries };
-	const writeGlobalState = { setSelectedColorMode, setAllCountries };
+	const readGlobalState = {
+		selectedColorMode,
+		allCountries,
+		showSelectedCountry,
+	};
+	const writeGlobalState = {
+		setSelectedColorMode,
+		setAllCountries,
+		setShowSelectedCountry,
+	};
 
 	console.log('readGlobalState', readGlobalState);
 

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Container, Row, Media, Button } from 'reactstrap';
 import CountryCard from '../components/cards/CountryCard';
 import SearchBar from '../components/forms/SearchBar';
@@ -16,12 +18,15 @@ const CountryDetailsLayout = ({ readGlobalState, writeGlobalState }) => {
 	const readHomeState = { searchTerm, filterSelection };
 	const writeHomeState = { setSearchTerm, setFilterSelection };
 
+	const navigate = useNavigate();
+
 	return (
 		<Container>
 			<div>
 				<ul className="search-filter-display">
 					<li>
 						<Button
+							onClick={() => navigate(-1)}
 							className={
 								selectedColorMode === 'light'
 									? 'show-page__icon-light'

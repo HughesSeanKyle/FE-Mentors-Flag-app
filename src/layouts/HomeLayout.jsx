@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Container, Row } from 'reactstrap';
+import { Container } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import CountryCard from '../components/cards/CountryCard';
 import SearchBar from '../components/forms/SearchBar';
 import FilterSelectBar from '../components/forms/FilterSelectBar';
@@ -22,46 +23,61 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 
 			if (searchTerm && name.common.includes(searchTerm)) {
 				return (
-					<CountryCard
-						altSpellings={altSpellings}
-						population={population}
-						region={region}
-						capital={capital}
-						flags={flags}
-						name={name}
-						key={name.common}
-						readGlobalState={readGlobalState}
-					/>
+					<Link
+						style={{ textDecoration: 'none' }}
+						to={`/country/${name.common}`}
+					>
+						<CountryCard
+							altSpellings={altSpellings}
+							population={population}
+							region={region}
+							capital={capital}
+							flags={flags}
+							name={name}
+							key={name.common}
+							readGlobalState={readGlobalState}
+						/>
+					</Link>
 				);
 			}
 
 			if (filterSelection && region.includes(filterSelection)) {
 				return (
-					<CountryCard
-						altSpellings={altSpellings}
-						population={population}
-						region={region}
-						capital={capital}
-						flags={flags}
-						name={name}
-						key={name.common}
-						readGlobalState={readGlobalState}
-					/>
+					<Link
+						style={{ textDecoration: 'none' }}
+						to={`/country/${name.common}`}
+					>
+						<CountryCard
+							altSpellings={altSpellings}
+							population={population}
+							region={region}
+							capital={capital}
+							flags={flags}
+							name={name}
+							key={name.common}
+							readGlobalState={readGlobalState}
+						/>
+					</Link>
 				);
 			}
 
 			if (!searchTerm && !filterSelection && !componentRequesting) {
 				return (
-					<CountryCard
-						altSpellings={altSpellings}
-						population={population}
-						region={region}
-						capital={capital}
-						flags={flags}
-						name={name}
-						key={name.common}
-						readGlobalState={readGlobalState}
-					/>
+					<Link
+						style={{ textDecoration: 'none' }}
+						to={`/country/${name.common}`}
+					>
+						<CountryCard
+							altSpellings={altSpellings}
+							population={population}
+							region={region}
+							capital={capital}
+							flags={flags}
+							name={name}
+							key={name.common}
+							readGlobalState={readGlobalState}
+						/>
+					</Link>
 				);
 			}
 		});

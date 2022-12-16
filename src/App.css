@@ -116,6 +116,18 @@ html {
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
+.card-light:hover {
+	transform: scale(1.1);
+	transition: 500ms;
+	box-shadow: 0 10px 20px 0 var(--dark-mode-element);
+}
+
+.card-dark:hover {
+	transform: scale(1.1);
+	transition: 500ms;
+	box-shadow: 0 10px 20px 0 var(--light-mode-element);
+}
+
 .card-light-text-heading {
 	color: var(--light-mode-text);
 	font-weight: 800;
