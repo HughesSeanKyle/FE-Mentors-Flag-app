@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Container, Row, Media, Button } from 'reactstrap';
@@ -14,8 +14,7 @@ const CountryDetailsLayout = ({
 	writeGlobalState,
 	onCountryDetailSelect,
 }) => {
-	const { selectedColorMode, allCountries, showSelectedCountry } =
-		readGlobalState;
+	const { selectedColorMode, showSelectedCountry } = readGlobalState;
 
 	const [searchTerm, setSearchTerm] = useState(null);
 	const [filterSelection, setFilterSelection] = useState(null);
@@ -27,8 +26,13 @@ const CountryDetailsLayout = ({
 
 	const onBackClick = () => {
 		navigate(-1);
-		onCountryDetailSelect(null);
 	};
+
+	useEffect(() => {
+		return () => {
+			onCountryDetailSelect(null);
+		};
+	}, []);
 
 	return (
 		<Container>
@@ -60,11 +64,7 @@ const CountryDetailsLayout = ({
 			<div className="show-page-layout-display">
 				<Media
 					object
-					src={
-						showSelectedCountry
-							? showSelectedCountry.flags.svg
-							: 'https://flagcdn.com/w320/ax.png'
-					}
+					src={showSelectedCountry ? showSelectedCountry.flags.svg : null}
 					alt={showSelectedCountry ? showSelectedCountry.name.common : 'name'}
 					width="100%"
 					height="54%"
@@ -75,6 +75,8 @@ const CountryDetailsLayout = ({
 						readGlobalState={readGlobalState}
 						writeGlobalState={writeGlobalState}
 						readHomeState={readHomeState}
+						// To update onBorderSelect
+						onCountryDetailSelect={onCountryDetailSelect}
 					/>
 				</Media>
 			</div>

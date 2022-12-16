@@ -337,3 +337,15 @@ html {
 	color: var(--dark-mode-text);
 	max-height: 40px;
 }
+
+.show-page__card-light {
+	background-color: var(--light-mode-element);
+	height: 327px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.show-page__card-dark {
+	background-color: var(--dark-mode-element);
+	height: 327px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}

@@ -11,17 +11,45 @@ import {
 } from 'reactstrap';
 import '../../App.css';
 
-const CountryDetailsCard = ({ readGlobalState }) => {
-	const { selectedColorMode } = readGlobalState;
+const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
+	const { selectedColorMode, allCountries, showSelectedCountry } =
+		readGlobalState;
 
 	// use abbreviated country names and show full name on btn hover
-	const sampleBorderBtnArr = ['Spain', 'UK', 'Ireland'];
+	const sampleBorderBtnArr = showSelectedCountry
+		? showSelectedCountry.borders
+		: ['Spain', 'UK', 'Ireland'];
+
+	const handleBorderBtnRender = () => {
+		if (showSelectedCountry?.borders) {
+			return showSelectedCountry.borders.map((borderCountry, index) => {
+				return (
+					<Button
+						key={index}
+						className={
+							selectedColorMode === 'light'
+								? 'card-light-text show-page__card-row-display__text show-page__text-light'
+								: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
+						}
+					>
+						{borderCountry}
+					</Button>
+				);
+			});
+		} else {
+			return <div>This country has no borders</div>;
+		}
+	};
 
 	return (
 		<div>
 			<Card
 				style={{ backgroundColor: 'transparent', border: 'none' }}
-				className={selectedColorMode === 'light' ? 'card-light' : 'card-dark'}
+				className={
+					selectedColorMode === 'light'
+						? 'show-page__card-light'
+						: 'show-page__card-dark'
+				}
 			>
 				<CardTitle
 					className={
@@ -121,19 +149,7 @@ const CountryDetailsCard = ({ readGlobalState }) => {
 						Border Countries:{' '}
 					</p>
 					<div className="show-page__card-row-display__buttons">
-						{sampleBorderBtnArr.map((borderCountry, index) => {
-							return (
-								<Button
-									className={
-										selectedColorMode === 'light'
-											? 'card-light-text show-page__card-row-display__text show-page__text-light'
-											: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
-									}
-								>
-									{borderCountry}
-								</Button>
-							);
-						})}
+						{handleBorderBtnRender()}
 					</div>
 				</Container>
 			</Card>
