@@ -141,7 +141,9 @@ html {
 	object-fit: cover;
 }
 
-/* Layouts */
+/* _____________HOME PAGE_____________ */
+
+/* Home page layout */
 .home-layout-display {
 	height: 100vh;
 	width: 100%;
@@ -245,3 +247,26 @@ html {
 }
 
 /* _____________FLAG DETAIL PAGE_____________ */
+
+/* Flag Details Layout */
+.show-page-layout-display {
+	height: 100vh;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 40px;
+	padding: 10px 20px;
+}
+
+.show-page__card-text-columns {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+}
+
+.show-page__card-row-display {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
