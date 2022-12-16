@@ -9,8 +9,13 @@ import CountryDetailsCard from '../components/cards/CountryDetailsCard';
 
 import '../App.css';
 
-const CountryDetailsLayout = ({ readGlobalState, writeGlobalState }) => {
-	const { selectedColorMode, allCountries } = readGlobalState;
+const CountryDetailsLayout = ({
+	readGlobalState,
+	writeGlobalState,
+	onCountryDetailSelect,
+}) => {
+	const { selectedColorMode, allCountries, showSelectedCountry } =
+		readGlobalState;
 
 	const [searchTerm, setSearchTerm] = useState(null);
 	const [filterSelection, setFilterSelection] = useState(null);
@@ -20,13 +25,18 @@ const CountryDetailsLayout = ({ readGlobalState, writeGlobalState }) => {
 
 	const navigate = useNavigate();
 
+	const onBackClick = () => {
+		navigate(-1);
+		onCountryDetailSelect(null);
+	};
+
 	return (
 		<Container>
 			<div>
 				<ul className="search-filter-display">
 					<li>
 						<Button
-							onClick={() => navigate(-1)}
+							onClick={() => onBackClick()}
 							className={
 								selectedColorMode === 'light'
 									? 'show-page__icon-light'
@@ -50,8 +60,12 @@ const CountryDetailsLayout = ({ readGlobalState, writeGlobalState }) => {
 			<div className="show-page-layout-display">
 				<Media
 					object
-					src="https://flagcdn.com/w320/ax.png"
-					alt="cat"
+					src={
+						showSelectedCountry
+							? showSelectedCountry.flags.svg
+							: 'https://flagcdn.com/w320/ax.png'
+					}
+					alt={showSelectedCountry ? showSelectedCountry.name.common : 'name'}
 					width="100%"
 					height="54%"
 					style={{ maxHeight: '450px' }}

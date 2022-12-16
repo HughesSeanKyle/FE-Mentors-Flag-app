@@ -162,7 +162,7 @@ html {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-gap: 40px;
-	padding: 10px 20px;
+	padding: 25px 20px;
 }
 
 /* Search and Filter Bar */

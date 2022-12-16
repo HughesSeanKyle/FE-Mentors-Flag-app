@@ -7,7 +7,11 @@ import FilterSelectBar from '../components/forms/FilterSelectBar';
 
 import '../App.css';
 
-const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
+const HomeLayout = ({
+	readGlobalState,
+	writeGlobalState,
+	onCountryDetailSelect,
+}) => {
 	const { selectedColorMode, allCountries } = readGlobalState;
 
 	const [searchTerm, setSearchTerm] = useState(null);
@@ -25,7 +29,8 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 				return (
 					<Link
 						style={{ textDecoration: 'none' }}
-						to={`/country/${name.common}`}
+						to={`/country/${altSpellings[0]}`}
+						onClick={() => onCountryDetailSelect(country)}
 					>
 						<CountryCard
 							altSpellings={altSpellings}
@@ -45,7 +50,8 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 				return (
 					<Link
 						style={{ textDecoration: 'none' }}
-						to={`/country/${name.common}`}
+						to={`/country/${altSpellings[0]}`}
+						onClick={() => onCountryDetailSelect(country)}
 					>
 						<CountryCard
 							altSpellings={altSpellings}
@@ -65,7 +71,8 @@ const HomeLayout = ({ readGlobalState, writeGlobalState }) => {
 				return (
 					<Link
 						style={{ textDecoration: 'none' }}
-						to={`/country/${name.common}`}
+						to={`/country/${altSpellings[0]}`}
+						onClick={() => onCountryDetailSelect(country)}
 					>
 						<CountryCard
 							altSpellings={altSpellings}

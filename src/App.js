@@ -36,6 +36,11 @@ function App() {
 		}
 	};
 
+	// Helpers
+	const onCountryDetailSelect = (country) => {
+		setShowSelectedCountry(country);
+	};
+
 	useEffect(() => {
 		setInitColorMode();
 		(async () => {
@@ -63,6 +68,7 @@ function App() {
 							<HomeLayout
 								readGlobalState={readGlobalState}
 								writeGlobalState={writeGlobalState}
+								onCountryDetailSelect={onCountryDetailSelect}
 							/>
 						}
 					/>
@@ -72,6 +78,7 @@ function App() {
 							<CountryDetailsLayout
 								readGlobalState={readGlobalState}
 								writeGlobalState={writeGlobalState}
+								onCountryDetailSelect={onCountryDetailSelect}
 							/>
 						}
 					/>
