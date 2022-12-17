@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import {
 	Button,
 	Card,
@@ -14,6 +14,40 @@ import '../../App.css';
 const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 	const { selectedColorMode, allCountries, showSelectedCountry } =
 		readGlobalState;
+
+	// Helpers
+	const getBorderCountryDetails = () => {
+		if (!showSelectedCountry.borders) {
+			return {
+				data: null,
+				error: 'This country has no neighboring countries',
+			};
+		}
+
+		const borderCountriesDetails = [];
+
+		showSelectedCountry.borders.map((borderCountry) => {
+			allCountries.map((country) => {
+				if (borderCountry == country.cca3) {
+					borderCountriesDetails.push(country);
+				}
+			});
+		});
+
+		if (!borderCountriesDetails) {
+			return {
+				data: null,
+				error: 'Border countries failed to populate',
+			};
+		}
+
+		if (borderCountriesDetails) {
+			return {
+				data: borderCountriesDetails,
+				error: null,
+			};
+		}
+	};
 
 	// Conditional Comp rendering
 	const handleBorderBtnRender = () => {
@@ -34,28 +68,20 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 			});
 		} else {
 			return (
-				<div
-					// className={
-					// 	selectedColorMode === 'light' ? 'card-light-text' : 'card-dark-text'
-					// }
-					style={{ color: 'red' }}
-				>
+				<div style={{ color: 'red' }}>
 					This country has no neighboring countries
 				</div>
 			);
 		}
 	};
 
-	// Helpers
 	const getNativeCountryName = () => {
 		if (showSelectedCountry) {
 			const getNativeName = showSelectedCountry.name.nativeName;
 			if (!getNativeName) {
 				return 'Native name not found';
 			}
-			console.log('getNativeName', getNativeName);
 			const nativeNameObjFirst = Object.values(getNativeName)[0].official;
-			console.log('nativeNameObjFirst', nativeNameObjFirst);
 			return nativeNameObjFirst;
 		}
 		return 'Native name not found';
@@ -67,9 +93,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 			if (!getCurrency) {
 				return 'Currency not found';
 			}
-			console.log('getCurrency', getCurrency);
 			const currencyObjFirst = Object.values(getCurrency)[0].name;
-			console.log('currencyObjFirst', currencyObjFirst);
 			return currencyObjFirst;
 		}
 		return 'Currency not found';
@@ -81,13 +105,16 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 			if (!getLangs) {
 				return 'Languages not found';
 			}
-			console.log('getLangs', getLangs);
 			const langsValues = Object.values(getLangs);
-			console.log('langsValues', langsValues);
 			return langsValues.join(',');
 		}
 		return 'Languages not found';
 	};
+
+	useEffect(() => {
+		const borderCountries = getBorderCountryDetails();
+		console.log('borderCountries', borderCountries);
+	}, []);
 
 	return (
 		<div>

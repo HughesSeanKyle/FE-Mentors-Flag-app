@@ -12,7 +12,7 @@ const HomeLayout = ({
 	writeGlobalState,
 	onCountryDetailSelect,
 }) => {
-	const { selectedColorMode, allCountries } = readGlobalState;
+	const { allCountries } = readGlobalState;
 
 	const [searchTerm, setSearchTerm] = useState(null);
 	const [filterSelection, setFilterSelection] = useState(null);

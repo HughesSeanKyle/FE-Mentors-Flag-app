@@ -68,7 +68,11 @@ const CountryDetailsLayout = ({
 					alt={showSelectedCountry ? showSelectedCountry.name.common : 'name'}
 					width="100%"
 					height="54%"
-					style={{ maxHeight: '450px', 'object-fit': 'cover' }}
+					className={
+						selectedColorMode === 'light'
+							? 'show-page__img-light'
+							: 'show-page__img-dark'
+					}
 				/>
 				<Media body>
 					<CountryDetailsCard
