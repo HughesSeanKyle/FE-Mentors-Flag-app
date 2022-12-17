@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
 	Button,
 	Card,
@@ -58,44 +59,25 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 
 		return borderCountryDetails.data.map((borderCountry, index) => {
 			return (
-				<Button
-					key={index}
-					style={{ fontSize: 'smaller' }}
-					className={
-						selectedColorMode === 'light'
-							? 'card-light-text show-page__card-row-display__text show-page__text-light'
-							: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
-					}
+				<Link
+					style={{ textDecoration: 'none' }}
+					to={`/country/${borderCountry.altSpellings[0]}`}
+					onClick={() => onCountryDetailSelect(borderCountry)}
 				>
-					{borderCountry.name.common}
-				</Button>
-			);
-		});
-	};
-
-	const handleBorderBtnRender = () => {
-		if (showSelectedCountry.borders) {
-			return showSelectedCountry.borders.map((borderCountry, index) => {
-				return (
 					<Button
 						key={index}
+						style={{ fontSize: 'smaller', minWidth: '117px', width: '117px' }}
 						className={
 							selectedColorMode === 'light'
 								? 'card-light-text show-page__card-row-display__text show-page__text-light'
 								: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
 						}
 					>
-						{borderCountry}
+						{borderCountry.name.common}
 					</Button>
-				);
-			});
-		} else {
-			return (
-				<div style={{ color: 'red' }}>
-					This country has no neighboring countries
-				</div>
+				</Link>
 			);
-		}
+		});
 	};
 
 	const getNativeCountryName = () => {
