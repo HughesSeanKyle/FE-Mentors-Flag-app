@@ -28,6 +28,7 @@ const CountryDetailsLayout = ({
 	};
 
 	useEffect(() => {
+		window.scrollTo(0, 0);
 		return () => {
 			onCountryDetailSelect(null);
 		};
