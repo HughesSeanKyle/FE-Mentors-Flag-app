@@ -1,4 +1,5 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
 	Button,
 	Card,
@@ -15,47 +16,77 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 	const { selectedColorMode, allCountries, showSelectedCountry } =
 		readGlobalState;
 
-	// Conditional Comp rendering
-	const handleBorderBtnRender = () => {
-		if (showSelectedCountry.borders) {
-			return showSelectedCountry.borders.map((borderCountry, index) => {
-				return (
+	// Helpers
+	const getBorderCountryDetails = () => {
+		if (!showSelectedCountry.borders) {
+			return {
+				data: null,
+				error: 'This country has no neighboring countries',
+			};
+		}
+
+		const borderCountriesDetails = [];
+
+		showSelectedCountry.borders.map((borderCountry) => {
+			allCountries.map((country) => {
+				if (borderCountry == country.cca3) {
+					borderCountriesDetails.push(country);
+				}
+			});
+		});
+
+		if (!borderCountriesDetails) {
+			return {
+				data: null,
+				error: 'Border countries failed to populate',
+			};
+		}
+
+		if (borderCountriesDetails) {
+			return {
+				data: borderCountriesDetails,
+				error: null,
+			};
+		}
+	};
+
+	const onBorderBtnRenderWithDetails = () => {
+		const borderCountryDetails = getBorderCountryDetails();
+
+		if (borderCountryDetails.error) {
+			return <div style={{ color: 'red' }}>{borderCountryDetails.error}</div>;
+		}
+
+		return borderCountryDetails.data.map((borderCountry, index) => {
+			return (
+				<Link
+					style={{ textDecoration: 'none' }}
+					to={`/country/${borderCountry.altSpellings[0]}`}
+					onClick={() => onCountryDetailSelect(borderCountry)}
+				>
 					<Button
 						key={index}
+						style={{ fontSize: 'smaller', minWidth: '117px', width: '117px' }}
 						className={
 							selectedColorMode === 'light'
 								? 'card-light-text show-page__card-row-display__text show-page__text-light'
 								: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
 						}
 					>
-						{borderCountry}
+						{borderCountry.name.common}
 					</Button>
-				);
-			});
-		} else {
-			return (
-				<div
-					// className={
-					// 	selectedColorMode === 'light' ? 'card-light-text' : 'card-dark-text'
-					// }
-					style={{ color: 'red' }}
-				>
-					This country has no neighboring countries
-				</div>
+				</Link>
 			);
-		}
+		});
 	};
 
-	// Helpers
 	const getNativeCountryName = () => {
 		if (showSelectedCountry) {
 			const getNativeName = showSelectedCountry.name.nativeName;
 			if (!getNativeName) {
 				return 'Native name not found';
 			}
-			console.log('getNativeName', getNativeName);
 			const nativeNameObjFirst = Object.values(getNativeName)[0].official;
-			console.log('nativeNameObjFirst', nativeNameObjFirst);
 			return nativeNameObjFirst;
 		}
 		return 'Native name not found';
@@ -67,9 +98,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 			if (!getCurrency) {
 				return 'Currency not found';
 			}
-			console.log('getCurrency', getCurrency);
 			const currencyObjFirst = Object.values(getCurrency)[0].name;
-			console.log('currencyObjFirst', currencyObjFirst);
 			return currencyObjFirst;
 		}
 		return 'Currency not found';
@@ -81,13 +110,16 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 			if (!getLangs) {
 				return 'Languages not found';
 			}
-			console.log('getLangs', getLangs);
 			const langsValues = Object.values(getLangs);
-			console.log('langsValues', langsValues);
 			return langsValues.join(',');
 		}
 		return 'Languages not found';
 	};
+
+	useEffect(() => {
+		const borderCountries = getBorderCountryDetails();
+		console.log('borderCountries', borderCountries);
+	}, []);
 
 	return (
 		<div>
@@ -206,7 +238,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 								: 'show-page__card-row-display__no-buttons'
 						}
 					>
-						{handleBorderBtnRender()}
+						{onBorderBtnRenderWithDetails()}
 					</div>
 				</Container>
 			</Card>

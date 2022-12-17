@@ -353,3 +353,15 @@ html {
 	height: fit-content;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+.show-page__img-light {
+	max-height: 450px;
+	object-fit: cover;
+	box-shadow: var(--dark-mode-element) 0px 4px 12px;
+}
+
+.show-page__img-dark {
+	max-height: 450px;
+	object-fit: cover;
+	box-shadow: var(--light-mode-element) 0px 4px 12px;
+}
