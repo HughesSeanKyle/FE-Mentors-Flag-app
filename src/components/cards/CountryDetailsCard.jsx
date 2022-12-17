@@ -49,7 +49,30 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 		}
 	};
 
-	// Conditional Comp rendering
+	const onBorderBtnRenderWithDetails = () => {
+		const borderCountryDetails = getBorderCountryDetails();
+
+		if (borderCountryDetails.error) {
+			return <div style={{ color: 'red' }}>{borderCountryDetails.error}</div>;
+		}
+
+		return borderCountryDetails.data.map((borderCountry, index) => {
+			return (
+				<Button
+					key={index}
+					style={{ fontSize: 'smaller' }}
+					className={
+						selectedColorMode === 'light'
+							? 'card-light-text show-page__card-row-display__text show-page__text-light'
+							: 'card-dark-text show-page__card-row-display__text show-page__text-dark'
+					}
+				>
+					{borderCountry.name.common}
+				</Button>
+			);
+		});
+	};
+
 	const handleBorderBtnRender = () => {
 		if (showSelectedCountry.borders) {
 			return showSelectedCountry.borders.map((borderCountry, index) => {
@@ -233,7 +256,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 								: 'show-page__card-row-display__no-buttons'
 						}
 					>
-						{handleBorderBtnRender()}
+						{onBorderBtnRenderWithDetails()}
 					</div>
 				</Container>
 			</Card>
