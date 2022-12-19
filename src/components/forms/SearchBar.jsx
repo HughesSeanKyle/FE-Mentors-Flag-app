@@ -43,7 +43,7 @@ const SearchBar = ({
 						? 'search-bar-light'
 						: 'search-bar-dark search-filter__text-light'
 				}
-				placeholder="Search for a country"
+				placeholder="Search for a country..."
 				type="text"
 				onChange={(e) =>
 					onSearchOrFilterUpdate(
