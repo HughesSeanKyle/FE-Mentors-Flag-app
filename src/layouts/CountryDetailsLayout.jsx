@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Container, Row, Media, Button } from 'reactstrap';
-import CountryCard from '../components/cards/CountryCard';
-import SearchBar from '../components/forms/SearchBar';
-import FilterSelectBar from '../components/forms/FilterSelectBar';
 import CountryDetailsCard from '../components/cards/CountryDetailsCard';
 
 import '../App.css';
@@ -13,6 +10,7 @@ const CountryDetailsLayout = ({
 	writeGlobalState,
 	onCountryDetailSelect,
 }) => {
+	const navigate = useNavigate();
 	const { selectedColorMode, showSelectedCountry } = readGlobalState;
 
 	const [searchTerm, setSearchTerm] = useState(null);
@@ -21,11 +19,9 @@ const CountryDetailsLayout = ({
 	const readHomeState = { searchTerm, filterSelection };
 	const writeHomeState = { setSearchTerm, setFilterSelection };
 
-	const navigate = useNavigate();
-
-	const onBackClick = () => {
-		navigate(-1);
-	};
+	// const onBackClick = () => {
+	// 	navigate(-1);
+	// };
 
 	useEffect(() => {
 		window.scrollTo(0, 0);

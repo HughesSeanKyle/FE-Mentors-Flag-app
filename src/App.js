@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 
 import { getAllCountries } from './api/getCountries';
@@ -12,8 +12,6 @@ function App() {
 	const [selectedColorMode, setSelectedColorMode] = useState(null);
 	const [allCountries, setAllCountries] = useState(null);
 	const [showSelectedCountry, setShowSelectedCountry] = useState(null);
-	const [height, setHeight] = useState(0);
-	const ref = useRef(null);
 
 	const readGlobalState = {
 		selectedColorMode,
@@ -25,8 +23,6 @@ function App() {
 		setAllCountries,
 		setShowSelectedCountry,
 	};
-
-	console.log('readGlobalState', readGlobalState);
 
 	const setInitColorMode = () => {
 		let colorMode = JSON.parse(localStorage.getItem('colorMode'));
@@ -44,8 +40,6 @@ function App() {
 	};
 
 	useEffect(() => {
-		setHeight(ref.current.clientHeight);
-		console.log('ref', ref.current.clientHeight);
 		setInitColorMode();
 		(async () => {
 			const allCountriesResp = await getAllCountries();
@@ -59,10 +53,7 @@ function App() {
 	}, []);
 
 	return (
-		<div
-			ref={ref}
-			className={selectedColorMode === 'light' ? 'app-light' : 'app-dark'}
-		>
+		<div className={selectedColorMode === 'light' ? 'app-light' : 'app-dark'}>
 			<BrowserRouter>
 				<NavBar
 					readGlobalState={readGlobalState}
