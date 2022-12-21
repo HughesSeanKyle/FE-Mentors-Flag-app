@@ -79,5 +79,5 @@ Users should be able to:
 ## Author
 
 - Website - [Kyle Sean Hughes](https://venerable-raindrop-e577cd.netlify.app/)
-- Frontend Mentor - [@HughesSeanKyle](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@HughesSeanKyle](https://www.frontendmentor.io/profile/HughesSeanKyle)
 
