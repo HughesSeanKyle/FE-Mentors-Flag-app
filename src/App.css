@@ -31,10 +31,12 @@ html {
 /* Global Parent */
 .app-light {
 	background-color: var(--light-mode-bg);
+	padding-bottom: 9rem;
 }
 
 .app-dark {
 	background-color: var(--dark-mode-bg);
+	padding-bottom: 9rem;
 }
 
 /* NavBar */
