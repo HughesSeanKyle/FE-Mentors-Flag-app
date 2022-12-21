@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container } from 'reactstrap';
+import { Container, Spinner } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import CountryCard from '../components/cards/CountryCard';
 import SearchBar from '../components/forms/SearchBar';
@@ -12,7 +12,7 @@ const HomeLayout = ({
 	writeGlobalState,
 	onCountryDetailSelect,
 }) => {
-	const { allCountries } = readGlobalState;
+	const { selectedColorMode, allCountries } = readGlobalState;
 
 	const [searchTerm, setSearchTerm] = useState(null);
 	const [filterSelection, setFilterSelection] = useState(null);
@@ -134,9 +134,19 @@ const HomeLayout = ({
 				</ul>
 			</div>
 
-			<div className="home-layout-display">
-				{mapCountries(searchTerm, filterSelection)}
-			</div>
+			{!allCountries ? (
+				<div
+					className={
+						selectedColorMode === 'light' ? 'spinner-light' : 'spinner-dark'
+					}
+				>
+					<Spinner />
+				</div>
+			) : (
+				<div className="home-layout-display">
+					{mapCountries(searchTerm, filterSelection)}
+				</div>
+			)}
 		</Container>
 	);
 };

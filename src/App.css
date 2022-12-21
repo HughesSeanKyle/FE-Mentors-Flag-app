@@ -159,6 +159,25 @@ html {
 
 /* _____________HOME PAGE_____________ */
 
+/* Spinner styling */
+.spinner-dark {
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color: var(--light-mode-element);
+}
+
+.spinner-light {
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color: var(--dark-mode-element);
+}
+
 /* Home page layout */
 .home-layout-display {
 	height: 100%;
