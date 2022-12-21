@@ -6,10 +6,16 @@ body,
 #root,
 .app {
 	font-family: 'Nunito Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 #root {
 	height: fit-content !important;
+}
+
+body {
+	margin: 0;
 }
 
 /* Light/Dark Theme colors */
@@ -25,12 +31,10 @@ html {
 /* Global Parent */
 .app-light {
 	background-color: var(--light-mode-bg);
-	height: 100%;
 }
 
 .app-dark {
 	background-color: var(--dark-mode-bg);
-	height: 100%;
 }
 
 /* NavBar */
@@ -368,7 +372,11 @@ html {
 
 @media only screen and (max-width: 375px) {
 	/* Global */
-	#root {
+
+	html,
+	body,
+	#root,
+	.app {
 		width: 37rem;
 	}
 
@@ -429,11 +437,7 @@ html {
 	/* Home */
 	.home-layout-display {
 		margin-top: 45px;
-		height: 100%;
-		width: 100%;
-		display: grid;
 		grid-template-columns: 1fr;
-		grid-gap: 40px;
 		padding: 25px 60px;
 	}
 
