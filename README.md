@@ -41,6 +41,13 @@ Users should be able to:
 - Live Site URL: (https://fe-mentors-flag-app.vercel.app/)
 
 ## My process
+- Study the design 
+- Test the api with Postman and inspect the data structure 
+- Set up react project 
+- Establish how many pages will be required 
+- Create routes with dummy components 
+- Hard code components and futher define styles 
+- Make components dynamic 
 
 ### Built with
 
@@ -51,8 +58,6 @@ Users should be able to:
 - Desktop-first workflow => 21/12 Work in progress for mobile 
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://reactstrap.github.io/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
