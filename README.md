@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./FE-mentors-flag-app.png)
+![Screenshot](./FE-mentors-flag-app.png)
 
 ### Links
 
