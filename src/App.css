@@ -395,8 +395,6 @@ html {
 @media only screen and (max-width: 375px) {
 	/* Global */
 
-	html,
-	body,
 	#root,
 	.app {
 		width: 375px;
