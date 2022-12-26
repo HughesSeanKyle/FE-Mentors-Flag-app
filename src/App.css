@@ -93,8 +93,9 @@ html {
 }
 
 .navbar__switch {
-	padding: 9px 108px 9px 0;
+	padding: 9px 86px 9px 0;
 	font-weight: 800;
+	margin-top: 8px;
 }
 
 .navbar__switch__icon {
@@ -102,7 +103,7 @@ html {
 }
 
 .navbar__logo {
-	padding: 9px 0 9px 90px;
+	padding: 9px 0 9px 69px;
 	font-weight: 800;
 	font-size: larger;
 }
@@ -202,7 +203,7 @@ html {
 }
 
 .search-bar-dimensions {
-	width: 25rem;
+	width: 25rem !important;
 	height: 40px;
 	margin-top: 25px;
 }
@@ -398,27 +399,46 @@ html {
 	body,
 	#root,
 	.app {
-		width: 37rem;
+		width: 375px;
 	}
 
 	/* Nav */
+	.navbar-light {
+		align-items: center;
+		height: 72px;
+	}
+
+	.navbar-dark {
+		align-items: center;
+		height: 72px;
+	}
+
 	.navbar__logo {
-		font-size: x-large;
-		padding: 27px 0 27px 54px;
+		padding: 0 0 0 27px;
 	}
 
 	.navbar__switch {
-		padding: 9px 72px 9px 0;
-		font-size: x-large;
+		padding: 0 27px 0 0;
+		margin: 0;
 	}
 
 	.nav__switch-color-mode-lable {
-		display: none;
+		display: none !important;
 	}
 
-	.nav__color-mode-icon {
-		margin-bottom: 7px;
+	.navbar-light-text {
+		padding-left: 0px !important;
+		font-size: large !important;
 	}
+
+	.navbar-dark-text {
+		padding-left: 0px !important;
+		font-size: large !important;
+	}
+
+	/* .nav__color-mode-icon {
+		margin-bottom: 7px !important;
+	} */
 
 	/* Cards */
 	.card-light {
