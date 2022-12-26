@@ -83,9 +83,9 @@ html {
 }
 
 .nav__switch-color-mode-dark:checked {
-	margin-top: 6.3px;
-	border-color: var(--light-mode-element);
-	background-color: var(--dark-mode-bg);
+	margin-top: 6.3px !important;
+	border-color: var(--light-mode-element) !important;
+	background-color: var(--dark-mode-bg) !important;
 }
 
 .nav__switch-color-mode-dark:focus {
