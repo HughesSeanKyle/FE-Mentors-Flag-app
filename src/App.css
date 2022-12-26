@@ -281,7 +281,7 @@ html {
 }
 
 .filter__select-indicator-dark {
-	background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill='white' stroke=%27%23343a40%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27m2 5 6 6 6-6%27/%3e%3c/svg%3e");
+	background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill='white' stroke=%27%23343a40%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27m2 5 6 6 6-6%27/%3e%3c/svg%3e") !important;
 }
 
 /* _____________FLAG DETAIL PAGE_____________ */
@@ -405,12 +405,12 @@ html {
 	/* Nav */
 	.navbar-light {
 		align-items: center;
-		height: 72px;
+		height: 90px;
 	}
 
 	.navbar-dark {
 		align-items: center;
-		height: 72px;
+		height: 90px;
 	}
 
 	.navbar__logo {
@@ -442,44 +442,54 @@ html {
 
 	/* Cards */
 	.card-light {
-		height: 540px !important;
+		height: 378px !important;
+		max-width: 288px !important;
 	}
 
 	.card-dark {
-		height: 540px !important;
+		height: 378px !important;
+		max-width: 288px !important;
 	}
 
 	.card__card-img {
-		height: 250px !important;
+		min-width: 285px !important;
+		min-height: 180px !important;
+		box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px,
+			rgb(255 242 242 / 30%) 0px 30px 60px -30px,
+			rgb(255 255 255 / 35%) 0px -2px 6px 0px inset;
 	}
 
 	.card-light-text-heading {
-		font-size: xx-large;
-		margin-top: 36px;
+		font-size: x-large;
+		margin-top: 9px;
 		padding-left: 20px;
 	}
 
 	.card-dark-text-heading {
-		font-size: xx-large;
-		margin-top: 36px;
+		font-size: x-large;
+		margin-top: 9px;
 		padding-left: 20px;
 	}
 
 	.card-light-text {
-		font-size: x-large;
+		font-size: medium;
 		padding-left: 20px;
 	}
 
 	.card-dark-text {
-		font-size: x-large;
+		font-size: medium;
 		padding-left: 20px;
 	}
 
 	/* Home */
 	.home-layout-display {
+		width: 100%;
 		margin-top: 45px;
-		grid-template-columns: 1fr;
-		padding: 25px 60px;
+		grid-template-columns: 1fr !important;
+		padding: 5px 9px;
+		grid-gap: 25px;
+		justify-items: center;
+		align-items: center;
 	}
 
 	.search-filter-display {
@@ -492,21 +502,23 @@ html {
 	}
 
 	.search-bar-dimensions {
-		width: 35rem;
+		width: 335px !important;
 		height: 63px;
 		margin-top: 25px;
 	}
 
 	.search-bar__icon-light {
 		font-size: x-large;
+		height: 54px;
 	}
 
 	.search-bar__icon-dark {
 		font-size: x-large;
+		height: 54px;
 	}
 
 	.search-bar-light {
-		height: 63px;
+		height: 54px;
 	}
 
 	.search-bar-light::placeholder {
@@ -514,7 +526,7 @@ html {
 	}
 
 	.search-bar-dark {
-		height: 63px;
+		height: 54px;
 	}
 
 	.search-bar-dark::placeholder {
@@ -522,16 +534,16 @@ html {
 	}
 
 	.search-filter__text-light {
-		font-size: larger;
+		font-size: small !important;
 	}
 
 	.search-filter__text-dark {
-		font-size: larger;
+		font-size: small !important;
 	}
 
 	.filter-bar-dimensions {
-		width: 18rem;
+		width: 12rem;
 		height: 40px;
-		margin-top: 25px;
+		margin-top: 5px;
 	}
 }
