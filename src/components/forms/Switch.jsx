@@ -41,9 +41,9 @@ const Switch = ({ readGlobalState, writeGlobalState }) => {
 					}}
 				/>
 
-				<Label className="nav__switch-color-mode-lable" check>
+				{/* <Label className="nav__switch-color-mode-lable" check>
 					{selectedColorMode === 'light' ? 'light mode' : 'dark mode'}
-				</Label>
+				</Label> */}
 			</FormGroup>
 		</Form>
 	);
