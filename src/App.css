@@ -63,11 +63,11 @@ html {
 }
 
 .navbar-light-text {
-	color: var(--light-mode-text);
+	color: var(--light-mode-text) !important;
 }
 
 .navbar-dark-text {
-	color: var(--dark-mode-text);
+	color: var(--dark-mode-text) !important;
 }
 
 .nav__switch-color-mode-light {
@@ -514,29 +514,4 @@ html {
 		height: 40px;
 		margin-top: 25px;
 	}
-}
-
-/* Experimental */
-
-.search-container {
-	position: relative;
-}
-
-.search-container input[type='text'] {
-	padding-left: 30px;
-	border-color: var(--dark-mode-element);
-	background-color: var(--dark-mode-element);
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
-.search-container input[type='text']::before {
-	content: '';
-	position: absolute;
-	left: 10px;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 20px;
-	height: 20px;
-	background: url('http://kodyrabatowe.wp.pl/img/ico/search_gr.png')
-		center/cover no-repeat;
 }
