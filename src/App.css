@@ -422,15 +422,15 @@ html {
 
 	/* Cards */
 	.card-light {
-		height: 540px;
+		height: 540px !important;
 	}
 
 	.card-dark {
-		height: 540px;
+		height: 540px !important;
 	}
 
 	.card__card-img {
-		height: 250px;
+		height: 250px !important;
 	}
 
 	.card-light-text-heading {
