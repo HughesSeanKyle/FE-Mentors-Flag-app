@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Container, Spinner } from 'reactstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Link } from '@reach/router';
 import CountryCard from '../components/cards/CountryCard';
 import SearchBar from '../components/forms/SearchBar';
 import FilterSelectBar from '../components/forms/FilterSelectBar';

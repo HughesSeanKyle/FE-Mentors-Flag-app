@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Link, useNavigate } from '@reach/router';
 import {
 	Button,
 	Card,
@@ -13,12 +14,13 @@ import {
 import '../../App.css';
 
 const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
+	const navigate = useNavigate();
 	const { selectedColorMode, allCountries, showSelectedCountry } =
 		readGlobalState;
 
 	// Helpers
 	const getBorderCountryDetails = () => {
-		if (!showSelectedCountry.borders) {
+		if (!showSelectedCountry?.borders) {
 			return {
 				data: null,
 				error: 'This country has no neighboring countries',
@@ -117,6 +119,9 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 	};
 
 	useEffect(() => {
+		if (!showSelectedCountry) {
+			navigate('/');
+		}
 		const borderCountries = getBorderCountryDetails();
 		console.log('borderCountries', borderCountries);
 	}, []);
@@ -138,10 +143,10 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 							: 'card-dark-text-heading show-page__card-title'
 					}
 				>
-					{showSelectedCountry.name.common}
+					{showSelectedCountry?.name.common}
 				</CardTitle>
 				<CardBody className="show-page__card-text-columns">
-					<Container>
+					<Container className="show-page__column-container">
 						<CardText
 							className={
 								selectedColorMode === 'light'
@@ -149,7 +154,10 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Native name: {getNativeCountryName()}
+							<strong className="show-page__detail-lables">
+								Native name:{' '}
+							</strong>{' '}
+							{getNativeCountryName()}
 						</CardText>
 						<CardText
 							className={
@@ -158,7 +166,8 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Population: {showSelectedCountry.population.toLocaleString()}
+							<strong className="show-page__detail-lables">Population: </strong>{' '}
+							{showSelectedCountry?.population.toLocaleString()}
 						</CardText>
 						<CardText
 							className={
@@ -167,7 +176,8 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Region: {showSelectedCountry.region}
+							<strong className="show-page__detail-lables">Region: </strong>{' '}
+							{showSelectedCountry?.region}
 						</CardText>
 						<CardText
 							className={
@@ -176,7 +186,8 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Sub Region: {showSelectedCountry.subregion}
+							<strong className="show-page__detail-lables">Sub region: </strong>{' '}
+							{showSelectedCountry?.subregion}
 						</CardText>
 						<CardText
 							className={
@@ -185,13 +196,13 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Capital:{' '}
-							{showSelectedCountry.capital
-								? showSelectedCountry.capital[0]
+							<strong className="show-page__detail-lables">Capital: </strong>
+							{showSelectedCountry?.capital
+								? showSelectedCountry?.capital[0]
 								: 'none'}
 						</CardText>
 					</Container>
-					<Container>
+					<Container className="show-page__column-container">
 						<CardText
 							className={
 								selectedColorMode === 'light'
@@ -199,7 +210,10 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Top Level Domain: {showSelectedCountry.tld[0]}
+							<strong className="show-page__detail-lables">
+								Top Level Domain:{' '}
+							</strong>{' '}
+							{showSelectedCountry?.tld[0]}
 						</CardText>
 						<CardText
 							className={
@@ -208,7 +222,8 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Currencies: {getCountryCurrency()}
+							<strong className="show-page__detail-lables">Currencies: </strong>{' '}
+							{getCountryCurrency()}
 						</CardText>
 						<CardText
 							className={
@@ -217,7 +232,8 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 									: 'card-dark-text m-0'
 							}
 						>
-							Languages: {getCountryLanguages()}
+							<strong className="show-page__detail-lables">Language: </strong>{' '}
+							{getCountryLanguages()}
 						</CardText>
 					</Container>
 				</CardBody>
@@ -233,7 +249,7 @@ const CountryDetailsCard = ({ readGlobalState, onCountryDetailSelect }) => {
 					</p>
 					<div
 						className={
-							showSelectedCountry.borders
+							showSelectedCountry?.borders
 								? 'show-page__card-row-display__buttons'
 								: 'show-page__card-row-display__no-buttons'
 						}
