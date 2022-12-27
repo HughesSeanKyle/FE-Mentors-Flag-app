@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Router } from '@reach/router';
 import { useState, useEffect, useRef } from 'react';
 
 import { getAllCountries } from './api/getCountries';
@@ -37,6 +38,7 @@ function App() {
 	// Helpers
 	const onCountryDetailSelect = (country) => {
 		setShowSelectedCountry(country);
+		window.scrollTo(0, 0);
 	};
 
 	useEffect(() => {
@@ -59,7 +61,21 @@ function App() {
 					readGlobalState={readGlobalState}
 					writeGlobalState={writeGlobalState}
 				/>
-				<Routes>
+				<Router>
+					<HomeLayout
+						path="/"
+						readGlobalState={readGlobalState}
+						writeGlobalState={writeGlobalState}
+						onCountryDetailSelect={onCountryDetailSelect}
+					/>
+					<CountryDetailsLayout
+						path="/country/:name"
+						readGlobalState={readGlobalState}
+						writeGlobalState={writeGlobalState}
+						onCountryDetailSelect={onCountryDetailSelect}
+					/>
+				</Router>
+				{/* <Routes>
 					<Route
 						path="/"
 						element={
@@ -80,7 +96,7 @@ function App() {
 							/>
 						}
 					/>
-				</Routes>
+				</Routes> */}
 			</BrowserRouter>
 		</div>
 	);

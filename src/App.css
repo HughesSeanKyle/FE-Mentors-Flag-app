@@ -434,10 +434,6 @@ html {
 		font-size: large !important;
 	}
 
-	/* .nav__color-mode-icon {
-		margin-bottom: 7px !important;
-	} */
-
 	/* Cards */
 	.card-light {
 		height: 378px !important;
@@ -543,5 +539,57 @@ html {
 		width: 12rem;
 		height: 40px;
 		margin-top: 5px;
+	}
+
+	/* _____________FLAG DETAIL PAGE_____________ */
+
+	/* Flag Details Layout */
+	.show-page-container {
+		min-height: 900px;
+	}
+
+	.show-page-layout-display {
+		grid-template-columns: 1fr;
+	}
+
+	.show-page__img-container {
+		width: 314px;
+	}
+
+	.show-page__img-dark {
+		min-height: 200px;
+		/* object-fit: cover; */
+		width: 100%;
+	}
+
+	.show-page__img-light {
+		min-height: 200px;
+		/* object-fit: cover; */
+		width: 100%;
+	}
+
+	.show-page__card-row-display {
+		width: 100%;
+		flex-direction: column;
+		justify-content: space-evenly;
+		padding: 0 27px 20px 27px;
+		align-items: center;
+	}
+
+	.show-page__card-row-display__buttons {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.show-page__card-text-columns {
+		grid-template-columns: 1fr;
+	}
+
+	.show-page__detail-lables {
+		padding-right: 3px;
+	}
+
+	.show-page__column-container {
+		padding: 0 !important;
+		margin-top: 18px;
 	}
 }

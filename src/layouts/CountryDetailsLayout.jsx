@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Link } from '@reach/router';
+import { useNavigate } from '@reach/router';
 import { Container, Row, Media, Button } from 'reactstrap';
 import CountryDetailsCard from '../components/cards/CountryDetailsCard';
 
@@ -19,11 +21,11 @@ const CountryDetailsLayout = ({
 	const readHomeState = { searchTerm, filterSelection };
 	const writeHomeState = { setSearchTerm, setFilterSelection };
 
-	// const onBackClick = () => {
-	// 	navigate(-1);
-	// };
-
 	useEffect(() => {
+		if (!showSelectedCountry) {
+			navigate('/');
+		}
+
 		window.scrollTo(0, 0);
 		return () => {
 			onCountryDetailSelect(null);
@@ -31,7 +33,7 @@ const CountryDetailsLayout = ({
 	}, []);
 
 	return (
-		<Container>
+		<Container className="show-page-container">
 			<div>
 				<ul className="search-filter-display">
 					<li>
@@ -59,27 +61,30 @@ const CountryDetailsLayout = ({
 			</div>
 
 			<div className="show-page-layout-display">
-				<Media
-					object
-					src={showSelectedCountry ? showSelectedCountry.flags.svg : null}
-					alt={showSelectedCountry ? showSelectedCountry.name.common : 'name'}
-					width="100%"
-					height="54%"
-					className={
-						selectedColorMode === 'light'
-							? 'show-page__img-light'
-							: 'show-page__img-dark'
-					}
-				/>
-				<Media body>
-					<CountryDetailsCard
-						readGlobalState={readGlobalState}
-						writeGlobalState={writeGlobalState}
-						readHomeState={readHomeState}
-						// To update onBorderSelect
-						onCountryDetailSelect={onCountryDetailSelect}
+				<div className="show-page__img-container">
+					<Media
+						object
+						src={showSelectedCountry ? showSelectedCountry.flags.svg : null}
+						alt={showSelectedCountry ? showSelectedCountry.name.common : 'name'}
+						width="100%"
+						height="54%"
+						className={
+							selectedColorMode === 'light'
+								? 'show-page__img-light'
+								: 'show-page__img-dark'
+						}
 					/>
-				</Media>
+				</div>
+				<div className="show-page__img-container">
+					<Media body>
+						<CountryDetailsCard
+							readGlobalState={readGlobalState}
+							writeGlobalState={writeGlobalState}
+							readHomeState={readHomeState}
+							onCountryDetailSelect={onCountryDetailSelect}
+						/>
+					</Media>
+				</div>
 			</div>
 		</Container>
 	);
